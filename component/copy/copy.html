@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&amp;display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../custom/ui.css">
+    <link rel="stylesheet" href="../../custom/color.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Копирование</title>
+</head>
+<body data-copy-icon-sprite="../../../custom/svg_icon.html">
+<button class="tooltip-wrap"
+        type="button"
+        onclick="copyToClipboard(this)"
+        data-email="info@proof48.ru"
+        aria-label="Скопировать адрес info@proof48.ru">
+    <span>info@proof48.ru
+        <svg aria-hidden="true">
+            <use href="#icon_copy"></use>
+        </svg>
+    </span>
+    <small>Основная почта</small>
+    <span class="tooltip" role="status" aria-live="polite" aria-atomic="true">Скопировано!</span>
+</button>
+<script src="copy.js"></script>
+
+</body>
+</html>

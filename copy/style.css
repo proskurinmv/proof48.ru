@@ -1,0 +1,84 @@
+.tooltip-wrap {
+    position: relative;
+    cursor: pointer;
+}
+
+button.tooltip-wrap {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    appearance: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+}
+
+button.tooltip-wrap:focus-visible {
+    outline: 2px solid var(--color-primary, var(--color-text-inverse));
+    outline-offset: 4px;
+}
+
+.tooltip-wrap > span:not(.tooltip) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-10, 10px);
+}
+
+.tooltip-wrap > span:not(.tooltip) svg {
+    width: var(--space-16, 16px);
+    height: var(--space-16, 16px);
+    flex: 0 0 auto;
+    fill: currentColor;
+    stroke: currentColor;
+}
+
+.tooltip {
+    position: absolute;
+    top: calc(100% + var(--space-8));
+    left: 50%;
+    z-index: 10;
+    padding: var(--space-4) var(--space-10);
+    border-radius: var(--radius-xs,);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border: 1px solid var(--color-primary);
+    font-size: var(--fz-sm);
+    font-weight: var(--fw-regular);
+    white-space: nowrap;
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -2px);
+    transition: opacity var(--transition-fast, 150ms ease),
+    transform var(--transition-fast, 150ms ease),
+    visibility 0s linear 150ms;
+}
+
+.tooltip.show-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+    transition-delay: 0s;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border: 5px solid transparent;
+    border-bottom-color: var(--color-primary);
+    transform: translateX(-50%);
+    box-shadow: var(--shadow-subtle, 0 2px 4px #0000000d);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tooltip {
+        transform: translate(-50%, 0);
+        transition: opacity 0.01ms, visibility 0s;
+    }
+}

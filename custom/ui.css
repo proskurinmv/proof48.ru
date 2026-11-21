@@ -1,0 +1,278 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+:root {
+    /* Font sizes */
+    --fz-xs: 0.625rem; /* 10px */
+    --fz-sm: 0.75rem; /* 12px */
+    --fz-md: 0.875rem; /* 14px */
+    --fz-base: 1rem; /* 16px */
+    --fz-lg: 1.125rem; /* 18px */
+    --fz-xl: 1.25rem; /* 20px */
+    --fz-2xl: 1.5rem; /* 24px */
+    --fz-3xl: 1.75rem; /* 28px */
+    --fz-4xl: 2.25rem; /* 36px */
+    --fz-5xl: 2.625rem; /* 42px */
+    --fz-6xl: 2.875rem; /* 46px */
+
+    /* Line heights */
+    --lh-tight: 1.15; /* обычно 28px+ — крупные заголовки */
+    --lh-heading: 1.25; /* примерно 20–28px — заголовки и подзаголовки */
+    --lh-normal: 1.5; /* примерно 14–18px — основной текст */
+    --lh-relaxed: 1.6; /* примерно 10–16px — длинный/плотный текст */
+
+    /* Font weights */
+    --fw-regular: 400;   /* Обычный текст */
+    --fw-medium: 500;    /* Среднее начертание */
+    --fw-semibold: 600;  /* Полужирное начертание */
+    --fw-bold: 700;      /* Жирное начертание */
+
+    /* Spacing */
+    --space-4: 0.25rem;
+    --space-8: 0.5rem;
+    --space-10: 0.625rem;
+    --space-12: 0.75rem;
+    --space-16: 1rem;
+    --space-20: 1.25rem;
+    --space-24: 1.5rem;
+    --space-30: 1.875rem;
+    --space-32: 2rem;
+    --space-40: 2.5rem;
+    --space-50: 3.125rem;
+    --space-60: 3.75rem;
+    --space-80: 5rem;
+    --space-100: 6.25rem;
+
+    /* Section spacing */
+    --section-space-sm: var(--space-20);
+    --section-space-md: var(--space-40);
+    --section-space-lg: var(--space-60);
+    --section-space-xl: var(--space-100);
+
+    /* Radius */
+    --radius-xs: 0.25rem; /* 4px */
+    --radius-sm: 0.5rem; /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 1rem; /* 16px */
+    --radius-xl: 1.5rem; /* 24px */
+    --radius-2xl: 2rem; /* 32px */
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 400ms ease;
+
+    /* Layout */
+    --container-max-width: 1366px;
+    --container-padding-desktop: 2rem; /* 32px */
+    --container-padding-mobile: 1rem; /* 16px */
+}
+
+@media (max-width: 576px) {
+    :root {
+        --section-space-sm: var(--space-16);
+        --section-space-md: var(--space-20);
+        --section-space-lg: var(--space-30);
+        --section-space-xl: var(--space-60);
+    }
+}
+
+html {
+    font-size: 100%;
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: var(--fz-base);
+    font-style: normal;
+    font-weight: var(--fw-regular);
+    font-variant-numeric: lining-nums proportional-nums;
+    font-synthesis: none;
+    line-height: var(--lh-normal);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+}
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button,
+select {
+    cursor: pointer;
+}
+
+button:disabled,
+select:disabled {
+    cursor: default;
+}
+
+textarea {
+    resize: vertical;
+}
+
+img,
+picture,
+svg {
+    display: block;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar utility */
+.custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary) var(--color-bg-soft);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 0.625rem;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background-color: var(--color-bg-soft);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-bg-soft);
+    border-radius: var(--radius-lg);
+}
+
+/* Container */
+.main-container {
+    width: min(
+            calc(100% - var(--container-padding-desktop) * 2),
+            var(--container-max-width)
+    );
+    margin-inline: auto;
+}
+
+@media (max-width: 902px) {
+    .main-container {
+        width: calc(100% - var(--container-padding-mobile) * 2);
+    }
+}
+
+/* Table spacing on mobile */
+@media (max-width: 768px) {
+    .margin-table {
+        margin-inline: calc(var(--container-padding-mobile) * -1);
+        padding-inline: var(--container-padding-mobile);
+    }
+}
+
+/* Typography */
+.title-h1 {
+    font-size: var(--fz-4xl);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-tight);
+}
+
+.title-h2 {
+    font-size: var(--fz-3xl);
+    font-weight: var(--fw-semibold);
+    line-height: var(--lh-heading);
+}
+
+.title-h3 {
+    font-size: var(--fz-2xl);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-heading);
+    letter-spacing: -0.03em;
+}
+
+@media (max-width: 768px) {
+    .title-h1 {
+        font-size: var(--fz-3xl);
+    }
+
+    .title-h2 {
+        font-size: var(--fz-2xl);
+    }
+
+    .title-h3 {
+        font-size: var(--fz-lg);
+    }
+}
+
+@media (max-width: 576px) {
+    .title-h1 {
+        font-size: var(--fz-xl);
+    }
+
+    .title-h2 {
+        font-size: var(--fz-lg);
+    }
+}
+
+/* Reveal animation. JS adds .is-visible to revealed elements. */
+@media (prefers-reduced-motion: no-preference) {
+    .reveal {
+        opacity: 0;
+        transform: translateY(1.5rem);
+        transition: opacity var(--transition-slow),
+        transform var(--transition-slow);
+    }
+
+    .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

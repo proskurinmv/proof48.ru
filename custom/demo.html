@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Proof — Button System</title>
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="buttons.css">
+    <link rel="stylesheet" href="ui.css">
+    <style>body {
+        margin: 0;
+        background: #f5f5f5;
+        color: #000;
+        font-family: Inter, Arial, sans-serif
+    }
+
+    main {
+        max-width: 1060px;
+        margin: auto;
+        padding: 64px 24px 100px
+    }
+
+    header {
+        margin-bottom: 52px
+    }
+
+    .eyebrow {
+        color: #34726a;
+        font-size: 13px
+    }
+
+    h1 {
+        font-size: clamp(38px, 6vw, 72px);
+        letter-spacing: -.055em;
+        margin: 14px 0
+    }
+
+    p {
+        color: #6f6f6f;
+        line-height: 1.6
+    }
+
+    section {
+        padding: 32px 0;
+        border-top: 1px solid #ddd
+    }
+
+    h2 {
+        font-size: 22px;
+        letter-spacing: -.025em
+    }
+
+    .demo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+        padding: 22px 0
+    }
+
+    .small {
+        font-size: 13px;
+        color: #6f6f6f
+    }
+
+    .swatches {
+        display: flex;
+        gap: 8px
+    }
+
+    .swatch {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px
+    }
+
+    .panel {
+        padding: 28px;
+        background: #fff;
+        border: 1px solid #e5e5e5;
+        border-radius: 16px
+    }
+
+    .state-grid {
+        display: grid;
+        grid-template-columns:repeat(auto-fit, minmax(150px, 1fr));
+        gap: 14px
+    }
+
+    .state-grid > div {
+        display: flex;
+        flex-direction: column;
+        gap: 12px
+    }
+
+    .state-grid .button {
+        width: 100%
+    }
+
+    .force-hover {
+        background: var(--color-primary-hover) !important
+    }
+
+    .force-active {
+        background: var(--color-primary-active) !important
+    }
+
+    .force-focus {
+        outline: 2px solid var(--color-border-focus);
+        outline-offset: 3px
+    }
+
+    .wide {
+        max-width: 360px
+    }
+
+    svg {
+        vertical-align: middle
+    }</style>
+</head>
+<body>
+<main>
+    <header>
+        <div class="eyebrow">Proof / Interface system</div>
+        <h1>Buttons, refined.</h1>
+        <p>Спокойная типографика, точная геометрия, ясная иерархия.</p>
+        <div class="swatches"><span class="swatch" style="background:#51b2a5"></span><span class="swatch"
+                                                                                           style="background:#34726a"></span><span
+                class="swatch" style="background:#2a5d56"></span><span class="swatch" style="background:#214a45"></span><span
+                class="swatch" style="background:#000"></span></div>
+    </header>
+    <section><h2>01 / Варианты</h2>
+        <div class="panel">
+            <div class="demo">
+                <button class="button button_primary">Primary</button>
+                <button class="button button_dark">Dark</button>
+                <button class="button button_secondary">Secondary</button>
+                <button class="button button_outline_primary">Outline primary</button>
+                <button class="button button_outline_dark">Outline dark</button>
+                <button class="button button_ghost">Ghost</button>
+                <button class="button button_text button_arrow">Text link
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 12h16m-7-7 7 7-7 7"/>
+                    </svg>
+                </button>
+                <button class="button button_primary button_icon" aria-label="Добавить">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                </button>
+                <button class="button button_secondary button-circle" aria-label="Открыть">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14m-7-7 7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section><h2>02 / Размеры</h2>
+        <div class="panel">
+            <div class="demo">
+                <button class="button button_primary button_size_sm">Small / 36</button>
+                <button class="button button_primary button_size_md">Medium / 46</button>
+                <button class="button button_primary button_size_lg">Large / 56</button>
+            </div>
+            <div class="wide">
+                <button class="button button_dark button_width_100">Full width</button>
+            </div>
+        </div>
+    </section>
+    <section><h2>03 / Иконки и стрелки</h2>
+        <div class="panel">
+            <div class="demo">
+                <button class="button button_primary button_arrow">Обсудить проект
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 12h16m-7-7 7 7-7 7"/>
+                    </svg>
+                </button>
+                <button class="button button_outline_primary">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4"/>
+                    </svg>
+                    Скачать презентацию
+                </button>
+                <button class="button button_ghost button_arrow">Подробнее
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 12h16m-7-7 7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+    <section><h2>04 / Состояния</h2>
+        <div class="panel state-grid">
+            <div><span class="small">Default</span>
+                <button class="button button_primary">Отправить</button>
+            </div>
+            <div><span class="small">Hover (preview)</span>
+                <button class="button button_primary force-hover">Отправить</button>
+            </div>
+            <div><span class="small">Active (preview)</span>
+                <button class="button button_primary force-active">Отправить</button>
+            </div>
+            <div><span class="small">Focus-visible (preview)</span>
+                <button class="button button_primary force-focus">Отправить</button>
+            </div>
+            <div><span class="small">Disabled</span>
+                <button class="button button_primary" disabled>Отправить</button>
+            </div>
+            <div><span class="small">Loading (demo)</span>
+                <button class="button button_primary button_loading" aria-busy="true" disabled><span
+                        class="button__content">Отправить</span><span class="button__spinner" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+        <p class="small">Попробуйте Tab для реального focus-visible и наведение для hover.</p></section>
+</main>
+</body>
+</html>
