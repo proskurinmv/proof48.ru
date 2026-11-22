@@ -4,7 +4,6 @@
     color: var(--color-text-inverse);
     background-color: color-mix(in srgb, var(--teal-950) 55%, var(--color-bg-inverse));
     padding-block: var(--section-space-xl);
-    margin-bottom: var(--section-space-lg);
 }
 
 .services__container {
@@ -79,7 +78,7 @@
     @media (max-width: 576px) {
         display: grid;
         grid-template-columns: 48px 1fr;
-        gap: 10px;
+    gap: var(--space-10);
         align-items: center;
     }
 }

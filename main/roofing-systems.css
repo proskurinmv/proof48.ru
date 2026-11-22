@@ -1,0 +1,421 @@
+.roofing-systems {
+    position: relative;
+    min-height: 58rem;
+    overflow: hidden;
+    color: var(--color-text-inverse);
+    background-color: var(--color-bg-inverse);
+    isolation: isolate;
+}
+
+.roofing-systems__background,
+.roofing-systems__veil {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.roofing-systems__background {
+    z-index: -2;
+    object-fit: cover;
+    object-position: center;
+}
+
+.roofing-systems__veil {
+    z-index: -1;
+    background:
+        linear-gradient(90deg, var(--color-bg-inverse) 0%, color-mix(in srgb, var(--color-bg-inverse) 88%, transparent) 37%, color-mix(in srgb, var(--color-bg-inverse) 30%, transparent) 76%),
+        linear-gradient(0deg, var(--color-bg-inverse) 0%, transparent 54%, color-mix(in srgb, var(--color-bg-inverse) 32%, transparent) 100%);
+}
+
+.roofing-systems__container {
+    width: min(calc(100% - var(--container-padding-desktop) * 2), 97.5rem);
+    padding-block: var(--space-50);
+}
+
+.roofing-systems__brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-20);
+    width: fit-content;
+    margin-bottom: var(--section-space-md);
+    color: var(--white-alpha-70);
+}
+
+.roofing-systems__brand-word {
+    color: var(--color-text-inverse);
+    font-size: var(--fz-2xl);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+}
+
+.roofing-systems__brand-divider {
+    width: 1px;
+    height: 1.75rem;
+    background-color: var(--white-alpha-50);
+}
+
+.roofing-systems__brand-copy {
+    font-size: var(--fz-sm);
+    font-weight: var(--fw-medium);
+}
+
+.roofing-systems__intro {
+    max-width: 48rem;
+    margin-bottom: var(--section-space-lg);
+}
+
+.roofing-systems__title {
+    font-size: clamp(3.75rem, 5.25vw, 5.5rem);
+    font-weight: var(--fw-semibold);
+    line-height: .88;
+    letter-spacing: -.045em;
+}
+
+.roofing-systems__title-line {
+    display: block;
+}
+
+.roofing-systems__title-line_accent {
+    color: var(--color-brand);
+}
+
+.roofing-systems__description {
+    margin-top: var(--space-20);
+    color: var(--white-alpha-70);
+    font-size: var(--fz-lg);
+    font-weight: var(--fw-medium);
+    line-height: var(--lh-normal);
+}
+
+.roofing-systems__actions {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-32);
+    margin-top: var(--space-50);
+}
+
+.roofing-systems__cta {
+    min-width: 17rem;
+    min-height: 3.875rem;
+    justify-content: space-between;
+    color: var(--teal-950);
+    background-color: var(--teal-300);
+    background-image: linear-gradient(135deg, var(--teal-300), var(--teal-500));
+    border-color: var(--teal-300);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.roofing-systems__metrics {
+    display: flex;
+    align-items: center;
+    gap: var(--space-32);
+    padding-inline-start: var(--space-32);
+    border-inline-start: 1px solid var(--white-alpha-50);
+}
+
+.roofing-systems__metric {
+    display: flex;
+    min-width: 8.5rem;
+    align-items: flex-start;
+    gap: var(--space-12);
+}
+
+.roofing-systems__metric-icon {
+    width: 2rem;
+    height: 2rem;
+    flex: 0 0 auto;
+    color: var(--teal-300);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+}
+
+.roofing-systems__metric-icon_industrial {
+    stroke-width: 12;
+}
+
+.roofing-systems__metric-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.roofing-systems__metric-value {
+    font-size: var(--fz-2xl);
+    line-height: var(--lh-tight);
+}
+
+.roofing-systems__metric-label {
+    margin-top: var(--space-8);
+    color: var(--white-alpha-70);
+    font-size: var(--fz-sm);
+    line-height: var(--lh-heading);
+}
+
+.roofing-systems__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--section-space-sm);
+}
+
+.roofing-systems__card {
+    position: relative;
+    overflow: hidden;
+    background-color: color-mix(in srgb, var(--teal-950) 55%, var(--color-bg-inverse));
+    border: 1px solid color-mix(in srgb, var(--teal-300) 30%, transparent);
+    border-radius: var(--radius-xl);
+    isolation: isolate;
+    padding: var(--section-space-sm);
+}
+
+.roofing-systems__card-image,
+.roofing-systems__card-shade {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.roofing-systems__card-image {
+    z-index: -2;
+    object-fit: cover;
+    object-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.roofing-systems__card-shade {
+    z-index: -1;
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--color-bg-inverse) 94%, transparent) 0%, color-mix(in srgb, var(--color-bg-inverse) 78%, transparent) 55%, color-mix(in srgb, var(--color-bg-inverse) 24%, transparent) 100%),
+        linear-gradient(0deg, color-mix(in srgb, var(--color-bg-inverse) 82%, transparent), transparent 72%);
+}
+
+.roofing-systems__card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+}
+
+.roofing-systems__number {
+    color: var(--teal-300);
+    font-size: var(--fz-base);
+    font-weight: var(--fw-semibold);
+    margin-bottom: var(--section-space-sm);
+}
+
+.roofing-systems__card-title {
+    max-width: 20rem;
+    margin-bottom: var(--section-space-sm);
+    font-size: var(--fz-2xl);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+}
+
+.roofing-systems__card-text {
+    max-width: 21rem;
+    margin-bottom: var(--section-space-sm);
+    color: var(--white-alpha-70);
+    font-size: var(--fz-md);
+    line-height: var(--lh-normal);
+}
+
+.roofing-systems__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-12);
+    margin-top: auto;
+    color: var(--teal-300);
+    font-size: var(--fz-base);
+    font-weight: var(--fw-semibold);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.roofing-systems__card-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .roofing-systems__cta:hover {
+        background-color: var(--teal-200);
+        background-image: linear-gradient(135deg, var(--teal-200), var(--teal-400));
+        border-color: var(--teal-200);
+    }
+
+    .roofing-systems__card:hover .roofing-systems__card-image {
+        transform: scale(1.035);
+    }
+
+    .roofing-systems__card-link:hover {
+        color: var(--color-text-inverse);
+        transform: translateX(var(--space-4));
+    }
+}
+
+.roofing-systems__cta:active,
+.roofing-systems__card-link:active {
+    transform: scale(.97);
+}
+
+@media (max-width: 1200px) {
+    .roofing-systems__actions {
+        flex-wrap: wrap;
+    }
+
+    .roofing-systems__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .roofing-systems__card:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .roofing-systems__card:last-child .roofing-systems__card-title,
+    .roofing-systems__card:last-child .roofing-systems__card-text {
+        max-width: 28rem;
+    }
+
+    .roofing-systems__background {
+        object-position: 58% center;
+    }
+}
+
+@media (max-width: 902px) {
+    .roofing-systems__container {
+        width: calc(100% - var(--container-padding-mobile) * 2);
+    }
+}
+
+@media (max-width: 768px) {
+    .roofing-systems__veil {
+        background:
+            linear-gradient(90deg, color-mix(in srgb, var(--color-bg-inverse) 96%, transparent), color-mix(in srgb, var(--color-bg-inverse) 64%, transparent)),
+            linear-gradient(0deg, var(--color-bg-inverse), transparent 68%);
+    }
+
+    .roofing-systems__brand-copy {
+        font-size: var(--fz-xs);
+    }
+
+    .roofing-systems__brand,
+    .roofing-systems__intro {
+        margin-inline-start: 0;
+    }
+
+    .roofing-systems__intro {
+        max-width: 100%;
+    }
+
+    .roofing-systems__title {
+        font-size: clamp(3rem, 11vw, 4.5rem);
+    }
+
+    .roofing-systems__description br {
+        display: none;
+    }
+
+    .roofing-systems__actions {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .roofing-systems__metrics {
+        padding-inline-start: 0;
+        border-inline-start: 0;
+    }
+
+    .roofing-systems__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roofing-systems__card:last-child {
+        grid-column: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .roofing-systems__container {
+        padding-block: var(--space-32) var(--space-40);
+    }
+
+    .roofing-systems__brand {
+        gap: var(--space-12);
+    }
+
+    .roofing-systems__brand-word {
+        font-size: var(--fz-xl);
+    }
+
+    .roofing-systems__brand-copy {
+        max-width: 9.5rem;
+        line-height: var(--lh-heading);
+    }
+
+    .roofing-systems__intro {
+        margin-top: var(--space-32);
+    }
+
+    .roofing-systems__title {
+        font-size: clamp(2.75rem, 13vw, 3.75rem);
+    }
+
+    .roofing-systems__description {
+        margin-top: var(--space-24);
+        font-size: var(--fz-base);
+    }
+
+    .roofing-systems__actions {
+        gap: var(--space-24);
+        margin-top: var(--space-32);
+    }
+
+    .roofing-systems__cta {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .roofing-systems__metrics {
+        width: 100%;
+        justify-content: space-between;
+        gap: var(--space-12);
+    }
+
+    .roofing-systems__metric {
+        min-width: 0;
+        gap: var(--space-8);
+    }
+
+    .roofing-systems__metric-icon {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .roofing-systems__metric-value {
+        font-size: var(--fz-xl);
+    }
+
+    .roofing-systems__card-title {
+        margin-top: var(--space-20);
+        font-size: var(--fz-xl);
+    }
+
+    .roofing-systems__card-shade {
+        background:
+            linear-gradient(90deg, color-mix(in srgb, var(--color-bg-inverse) 94%, transparent), color-mix(in srgb, var(--color-bg-inverse) 52%, transparent)),
+            linear-gradient(0deg, color-mix(in srgb, var(--color-bg-inverse) 90%, transparent), transparent 75%);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .roofing-systems__cta,
+    .roofing-systems__card-image,
+    .roofing-systems__card-link {
+        transition: none;
+    }
+}

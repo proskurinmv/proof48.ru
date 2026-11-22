@@ -8,6 +8,8 @@ const styleFiles = [
     new URL('../main/stats.css', import.meta.url),
     new URL('../main/industries.css', import.meta.url),
     new URL('../main/services.css', import.meta.url),
+    new URL('../main/roofing-systems.css', import.meta.url),
+    new URL('../main/projects-gallery.css', import.meta.url),
 ];
 
 async function readStyles() {

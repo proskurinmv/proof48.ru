@@ -3,7 +3,7 @@
     if (!header) return;
 
     if (typeof fetch === 'function' && document.body?.insertAdjacentHTML) {
-        fetch('../custom/svg_icons.html')
+        fetch('../custom/svg_icons.html?v=services-1')
             .then((response) => response.ok ? response.text() : Promise.reject())
             .then((sprite) => document.body.insertAdjacentHTML('afterbegin', sprite))
             .catch(() => {});

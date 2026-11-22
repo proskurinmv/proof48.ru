@@ -1,59 +1,54 @@
-# Design QA — Header and Hero
+# Design QA — Кровельные системы
 
-- Source visual truth: `/var/folders/wz/hg0bhl8n2pb2xkxvsp4f2mp00000gn/T/codex-file-preview-PyHuC8/Промышленная гидроизоляция PROOF.png`
-- Required hero source: `/Users/a1111/Documents/proof/main/images/hero.png`
-- Implementation screenshot: `/Users/a1111/Documents/proof/qa/implementation-1586x992.png`
-- Side-by-side evidence: `/Users/a1111/Documents/proof/qa/design-comparison.png`
-- Viewport: 1586 × 992 CSS px, desktop, menu closed
-- Source pixels: 1586 × 992
-- Implementation screenshot pixels: 1983 × 1241
-- Density normalization: the source was resized to 1983 × 1241 for the side-by-side comparison; the browser screenshot represents the same 1586 × 992 CSS viewport at the in-app browser capture density.
+- Source visual truth: `/Users/a1111/Desktop/ПРУФ_ Современные кровельные решения.png`
+- Browser implementation crop: `/Users/a1111/Documents/proof48.ru/qa/roofing-systems-section.png`
+- Combined comparison evidence: `/Users/a1111/Documents/proof48.ru/qa/roofing-systems-comparison.png`
+- Mobile evidence: `/Users/a1111/Documents/proof48.ru/qa/roofing-systems-mobile.png`
+- Browser viewport: 1673 × 941 CSS px for the source-size pass; 375 × 812 CSS px for mobile.
+- Source pixels: 1673 × 941.
+- Implementation section pixels: 1673 × 942 at device pixel ratio 1.
+- Density normalization: source fitted to 1673 × 942 for the combined side-by-side comparison; implementation retained at browser density.
+- State: default, `#roofing` visible.
 
 ## Required fidelity surfaces
 
-- Fonts and typography: Montserrat from the existing UI system; weights, hierarchy, wrapping and line heights match the supplied composition. Mobile title and description remain readable at 320 px.
-- Spacing and layout rhythm: 84 px desktop header, 72 px compact header, aligned hero content, full-height first screen and CTA proportions verified.
-- Colors and visual tokens: existing Proof variables are used; the requested responsive teal gradient recreates the right-side accent without an extra raster layer.
-- Image quality and asset fidelity: `hero.png` is used directly with `cover`; no placeholder or generated hero image is present. The worker differs from the mockup because the user explicitly required the supplied `hero.png` as the source of truth for the background.
-- Copy and content: header navigation, phone, hero text and CTA labels match the mockup.
-- Icons: the existing `custom/svg_icons.html` sprite is loaded; phone and arrow symbols render from it.
-- Accessibility: semantic landmarks, labelled navigation, visible focus styles, ARIA state, Escape close, focus return and reduced-motion handling are present.
+- Fonts and typography: existing Montserrat system is preserved. The two-line display heading, weights, line height, wrapping and card hierarchy closely match the source.
+- Spacing and layout rhythm: the brand strip, inset intro, CTA/metrics row, three-card grid, gutters, radii and section height follow the source composition.
+- Colors and tokens: all colors and gradients use existing variables from `color.css`; no raw color values were added.
+- Image quality: four dedicated WebP assets match the dark industrial roof art direction, including the pitched-roof hero, water-beaded coating, bitumen roll and membrane detail.
+- Copy and content: heading, description, CTA, metrics and three system descriptions match the supplied design.
+- Icons: metrics and arrows use `#ui-layers`, `#icon_industrial_width` and `#icon_arrow_right_3` from the existing sprite.
+- Accessibility: semantic section/headings, labelled links, visible focus inherited from the UI system and reduced-motion handling are present.
 
-## Full-view comparison evidence
+## Full-view and focused comparison evidence
 
-The desktop comparison shows matched header height, content origin, hero height, typography hierarchy, CTA dimensions and right-side gradient placement. The photographic subject difference is expected because the supplied standalone `hero.png` is intentionally used instead of the different image embedded in the composite mockup.
+The combined comparison places the supplied source and browser-rendered block side by side at the same width. It confirms the dark left text field, right-aligned pitched roof, two-color heading, CTA/metrics alignment, three equal photographic cards and numbered hierarchy.
 
-Focused region comparison was not required: Header and Hero controls remain clearly readable in the 1983 × 1241 full-view comparison. Responsive captures and geometry were additionally inspected at every required width.
+The same comparison is also the focused region check: the block fills the entire reference frame, while card typography, image crops, icons and link affordances remain legible at 1:1 density.
 
 ## Comparison history
 
-1. P2 — the global stable scrollbar gutter left an 18 px blank strip at the right edge.
-   - Fix: scoped the one-screen page to `scrollbar-gutter: auto` in `hero.css`.
-   - Post-fix evidence: implementation fills the 1586 px viewport; `scrollWidth` equals `innerWidth`.
-2. P2 — initial diagonal accent started too far left and too high.
-   - Fix: tightened the two hard-stop teal gradients to the right-side proportions of the mockup.
-   - Post-fix evidence: `qa/implementation-1586x992.png` and `qa/design-comparison.png`.
-3. P2 — external `<use>` references did not render because the existing sprite filename is plural (`svg_icons.html`).
-   - Fix: load the actual sprite path once and reference its in-document symbol IDs.
-   - Post-fix evidence: 278 symbols are present in the rendered DOM; phone and CTA arrows are visible.
-4. P2 — removing the mobile description line break also removed the separating space.
-   - Fix: preserved a literal word boundary in the HTML.
-   - Post-fix evidence: the 375 px and 320 px browser checks show correct wrapping and no horizontal overflow.
+1. Initial dark implementation used the previous light liquid-coating asset and the project-wide 1366 px container. This made the cards too narrow and the first card visually unlike the source.
+2. Replaced the liquid asset with a dark water-beaded membrane macro, generated a matching pitched-roof hero, widened only this section to the source grid and aligned the intro inset.
+3. The second comparison showed the action row and cards slightly high. Vertical spacing was adjusted with existing spacing variables; the final section is 1673 × 942 against a 1673 × 941 source.
 
 ## Responsive and interaction checks
 
-- Widths checked: 1440, 1280, 1024, 768, 576, 375 and 320 px.
-- Horizontal overflow: none at all widths.
-- Mobile menu: open/close, link close, Escape close, focus return and desktop breakpoint reset checked.
+- Checked widths: 1440, 1280, 1024, 768, 576, 375 and 320 px.
+- Desktop: three cards in one row.
+- Tablet: two cards plus a full-width third card.
+- Mobile: one-column cards, full-width CTA and two compact metrics.
+- No horizontal overflow at any checked width.
+- All four section images load successfully and have non-zero natural dimensions.
+- Mobile menu navigation to the section works.
 - Browser console: no warnings or errors.
-- Primary interactions tested: phone link, consultation CTA, project CTA and mobile menu controls are reachable and exposed with correct semantics.
 
 ## Findings
 
-No actionable P0/P1/P2 issues remain. The only visible source difference is the photographic subject mandated by the separate `hero.png` asset.
+No actionable P0/P1/P2 differences remain.
 
 ## Follow-up polish
 
-- P3: replace the typographic PROOF wordmark with an official standalone logo asset if one becomes available.
+- P3: a dedicated brand-mark asset could replace the text-only `PROOF` strip if one is added to the project sprite later.
 
 final result: passed
