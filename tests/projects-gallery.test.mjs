@@ -15,7 +15,7 @@ test('projects gallery exposes exactly three static project cards', async () => 
 
     assert.match(html, /<section[^>]+class="projects-gallery"[^>]+id="projects"[^>]+aria-labelledby="projects-gallery-title"/);
     assert.equal(cards.length, 3);
-    assert.match(html, /Гидроизоляция кровли объекта критической инфраструктуры/);
+    assert.match(html, /Гидроизоляция кровли объекта критической\s+инфраструктуры/);
     assert.match(html, /Ремонт и гидроизоляция государственных объектов/);
     assert.match(html, /Восстановление кровли после многократных ремонтов/);
     assert.doesNotMatch(html, /projects-gallery[^\n]*(swiper|slider|carousel)/i);

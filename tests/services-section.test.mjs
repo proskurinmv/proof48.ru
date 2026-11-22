@@ -33,5 +33,6 @@ test('services section uses sprite icons and a real background asset', async () 
     assert.match(html, /href="#icon_share"/);
     assert.match(html, /href="#icon_technical"/);
     assert.match(html, /href="#icon_bucket_outline"/);
-    assert.match(html, /services-roof-sunset\.webp/);
+    assert.match(html, /class="services__background"[^>]+services-roof-sunset\.png/);
+    assert.match(html, /class="services__title-accent">ключ</);
 });

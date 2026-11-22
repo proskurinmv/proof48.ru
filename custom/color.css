@@ -47,14 +47,9 @@
     --info-50: #EDF5FA;
     --info-700: #245E87;
 
-    /* Semantic: brand */
-    --color-brand: var(--teal-500);                   /* Основной фирменный цвет */
-    --color-brand-soft: var(--teal-50);               /* Мягкая фирменная подложка */
-    --color-brand-strong: var(--teal-800);            /* Контрастный фирменный акцент */
-
     /* Semantic: interactive */
-    --color-primary: var(--teal-800);                 /* Основная кнопка и CTA */
-    --color-primary-hover: var(--teal-900);           /* Кнопка при наведении */
+    --color-primary: var(--teal-500);                 /* Основная кнопка и CTA */
+    --color-primary-hover: var(--teal-700);           /* Кнопка при наведении */
     --color-primary-active: var(--teal-950);          /* Кнопка при нажатии */
     --color-primary-light: var(--teal-100);           /* Светлая интерактивная подложка */
     --color-primary-soft: var(--teal-50);             /* Ненавязчивый интерактивный фон */

@@ -11,52 +11,65 @@
     <link rel="stylesheet" href="./header.css">
     <link rel="stylesheet" href="./hero.css">
     <link rel="stylesheet" href="./stats.css">
-    <link rel="stylesheet" href="./industries.css">
-    <link rel="stylesheet" href="./services.css">
+    <link rel="stylesheet" href="./industries.css?v=industries-2">
+    <link rel="stylesheet" href="./services.css?v=services-5">
     <link rel="stylesheet" href="./roofing-systems.css">
     <link rel="stylesheet" href="./projects-gallery.css">
+    <link rel="stylesheet" href="./project-geography.css">
+    <link rel="stylesheet" href="./about.css?v=about-1">
+    <link rel="stylesheet" href="./consultation.css?v=consultation-1">
     <script src="./header.js" defer></script>
+    <script src="./project-geography.js" defer></script>
     <title>Промышленная гидроизоляция — PROOF</title>
 </head>
 <body>
 <header class="header" data-header>
     <div class="header__container main-container">
         <a class="header__logo" href="#" aria-label="PROOF — на главную">
-            <span class="header__logo-word" aria-hidden="true">PROOF</span>
+            <svg class="header__logo-image" aria-hidden="true">
+                <use href="#logo-proof"></use>
+            </svg>
         </a>
+
+        <p class="header__tagline">Эксперт в гидроизоляции<br>промышленных объектов</p>
 
         <nav class="header__navigation" id="main-navigation" aria-label="Основная навигация" data-header-navigation>
             <ul class="header__menu">
-                <li class="header__menu-item"><a class="header__menu-link" href="#services">Услуги</a></li>
-                <li class="header__menu-item"><a class="header__menu-link" href="#roofing">Кровельные системы</a></li>
+                <li class="header__menu-item"><a class="header__menu-link" href="#services"> Решения</a></li>
                 <li class="header__menu-item"><a class="header__menu-link" href="#projects">Объекты</a></li>
                 <li class="header__menu-item"><a class="header__menu-link" href="#about">О компании</a></li>
-                <li class="header__menu-item"><a class="header__menu-link" href="#technologies">Технологии</a></li>
+                <li class="header__menu-item"><a class="header__menu-link" href="#knowledge">База знаний</a></li>
                 <li class="header__menu-item"><a class="header__menu-link" href="#contacts">Контакты</a></li>
             </ul>
 
             <div class="header__mobile-actions">
-                <a class="header__phone" href="tel:+74950000000">
+                <a class="header__phone" href="tel:+74951504567">
                     <svg class="header__phone-icon" aria-hidden="true">
                         <use href="#nav-call"></use>
                     </svg>
-                    <span>+7 (495) 000-00-00</span>
+                    <span>+7 495 150-45-67</span>
                 </a>
-                <a class="header__consultation button button_outline_primary" href="#consultation">
-                    Получить консультацию
+                <a class="header__consultation button button_primary button_arrow" href="#consultation">
+                    <span>Обсудить проект</span>
+                    <svg aria-hidden="true">
+                        <use href="#icon_arrow_right_3"></use>
+                    </svg>
                 </a>
             </div>
         </nav>
 
         <div class="header__actions">
-            <a class="header__phone" href="tel:+74950000000">
+            <a class="header__phone" href="tel:+74951504567">
                 <svg class="header__phone-icon" aria-hidden="true">
                     <use href="#nav-call"></use>
                 </svg>
-                <span>+7 (495) 000-00-00</span>
+                <span>+7 495 150-45-67</span>
             </a>
-            <a class="header__consultation button button_outline_primary" href="#consultation">
-                Получить консультацию
+            <a class="header__consultation button button_primary button_arrow" href="#consultation">
+                <span>Обсудить проект</span>
+                <svg aria-hidden="true">
+                    <use href="#icon_arrow_right_3"></use>
+                </svg>
             </a>
         </div>
 
@@ -75,12 +88,12 @@
         <div class="hero__container main-container">
             <div class="hero__content">
                 <span class="hero__accent" aria-hidden="true"></span>
-                <p class="hero__eyebrow">Промышленная гидроизоляция</p>
-                <h1 class="hero__title" id="hero-title">Надёжные решения<br>для промышленных<br>кровель</h1>
-                <p class="hero__description">Гидроизоляция, ремонт и реконструкция<br> сложных промышленных кровель.</p>
+                <h1 class="hero__title">Гидроизоляция и ремонт <span>сложных промышленных</span> кровель</h1>
+                <p class="hero__description">Работаем с кровлями площадью от 500 м² и технически сложными объектами.
+                    Подбираем техническое решение под состояние кровли, условия эксплуатации и задачу заказчика.</p>
                 <div class="hero__actions">
                     <button class="button button_primary button_arrow">
-                        <span>Получить консультацию</span>
+                        <span>Получить техническое решение</span>
                         <svg aria-hidden="true">
                             <use href="#icon_arrow_right_3"></use>
                         </svg>
@@ -93,299 +106,299 @@
                     </a>
                 </div>
             </div>
+            <section class="stats" aria-label="Ключевые показатели">
+                <div class="stats__container">
+                    <ul class="stats__list">
+                        <li class="stats__item">
+                            <svg class="stats__icon" aria-hidden="true">
+                                <use href="#ui-layers"></use>
+                            </svg>
+                            <div class="stats__content">
+                                <div class="stats__value-line">
+                                    <strong class="stats__value counter" data-target="20000" data-suffix="+"></strong>
+                                    <span class="stats__unit">м²</span>
+                                </div>
+                                <p class="stats__description">реализованных<br>кровельных решений</p>
+                            </div>
+                        </li>
+                        <li class="stats__item">
+                            <svg class="stats__icon" aria-hidden="true">
+                                <use href="#ui-map-pin"></use>
+                            </svg>
+                            <div class="stats__content">
+                                <div class="stats__value-line">
+                                    <strong class="stats__value counter" data-target="95" data-suffix="+"></strong>
+                                </div>
+                                <p class="stats__description">регионов<br>присутствия</p>
+                            </div>
+                        </li>
+                        <li class="stats__item">
+                            <svg class="stats__icon">
+                                <use href="#icon_home_v3"></use>
+                            </svg>
+                            <div class="stats__content">
+                                <div class="stats__value-line">
+                                    <strong class="stats__value counter" data-target="1000" data-suffix="+"></strong>
+                                </div>
+                                <p class="stats__description">объектов<br>в эксплуатации</p>
+                            </div>
+                        </li>
+                        <li class="stats__item">
+                            <svg class="stats__icon" aria-hidden="true">
+                                <use href="#icon_calendar_row"></use>
+                            </svg>
+                            <div class="stats__content">
+                                <div class="stats__value-line">
+                                    <strong class="stats__value counter" data-target="15" data-suffix="+"></strong>
+                                    <span class="stats__unit">лет</span>
+                                </div>
+                                <p class="stats__description">опыта на рынке</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
         </div>
     </section>
-    <section class="stats" aria-label="Ключевые показатели">
-        <div class="stats__container main-container">
-            <ul class="stats__list">
-                <li class="stats__item">
-                    <svg class="stats__icon stats__icon_square" aria-hidden="true">
-                        <use href="#icon_square_2_width"></use>
-                    </svg>
-                    <div class="stats__content">
-                        <strong class="stats__value counter" data-target="20000" data-suffix="+"></strong>
-                        <p class="stats__description">м² реализованных кровельных решений</p>
-                    </div>
-                </li>
-                <li class="stats__item">
-                    <svg class="stats__icon" aria-hidden="true">
-                        <use href="#ui-map-pin"></use>
-                    </svg>
-                    <div class="stats__content">
-                        <strong class="stats__value counter" data-target="95" data-suffix="+"></strong>
-                        <p class="stats__description">регионов присутствия</p>
-                    </div>
-                </li>
-                <li class="stats__item">
-                    <svg class="stats__icon" aria-hidden="true">
-                        <use href="#ui-layers"></use>
-                    </svg>
-                    <div class="stats__content">
-                        <strong class="stats__value counter" data-target="1000" data-suffix=""></strong>
-                        <p class="stats__description">объектов в эксплуатации</p>
-                    </div>
-                </li>
-                <li class="stats__item">
-                    <svg class="stats__icon" aria-hidden="true">
-                        <use href="#icon_calendar_row"></use>
-                    </svg>
-                    <div class="stats__content">
-                        <strong class="stats__value counter" data-target="15" data-suffix="+"></strong>
-                        <p class="stats__description">лет опыта на рынке</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
-    <section class="industries" aria-labelledby="industries-title">
+    <section class="industries" id="industries" aria-labelledby="industries-title">
         <div class="industries__container main-container">
-            <p class="industries__eyebrow">Отрасли</p>
-            <h2 class="industries__title" id="industries-title">Работаем там, где требования к кровле особенно
-                высоки</h2>
+            <div class="industries__content">
+                <div class="industries__eyebrow-row">
+                    <span class="industries__eyebrow-line" aria-hidden="true"></span>
+                    <p class="industries__eyebrow">Типы объектов</p>
+                </div>
+                <h2 class="industries__title" id="industries-title">Работаем там, где требования к кровле особенно
+                    высоки</h2>
+                <div class="industries__list">
+                    <a class="industries__item" href="#industrial-enterprises">
+                        <span class="industries__icon-box" aria-hidden="true">
+                            <svg class="industries__icon"><use href="#icon_industrial_width"></use></svg>
+                        </span>
+                        <span class="industries__name">Производственные предприятия</span>
+                        <span class="industries__description">Заводы, фабрики, производственные корпуса и технологические здания.</span>
+                        <svg class="industries__arrow" aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
+                    </a>
 
-            <div class="industries__grid">
-                <a class="industries__card" href="#industrial-enterprises">
-                    <img class="industries__image" src="./images/industries/industrial-enterprises.webp"
-                         loading="lazy" decoding="async" alt="">
-                    <span class="industries__shade" aria-hidden="true"></span>
-                    <div class="industries__body">
-                        <div class="industries__body-content">
-                            <div class="industries__name">Промышленные предприятия</div>
-                            <div class="industries__desc">
-                                Заводы, фабрики, производственные корпуса и технологические
-                                здания.
-                                <div class="industries__arrow" aria-hidden="true">
-                                    <svg>
-                                        <use href="#icon_arrow_right_3"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class="industries__card" href="#logistics-complexes">
-                    <img class="industries__image" src="./images/industries/logistics-complexes.webp"
-                         loading="lazy" decoding="async" alt="">
-                    <span class="industries__shade" aria-hidden="true"></span>
-                    <div class="industries__body">
-                        <div class="industries__body-content">
-                            <div class="industries__name">Склады и логистические комплексы</div>
-                            <div class="industries__desc">ЗБольшие площади и ремонт без остановки операционных
-                                процессов.
-                                <div class="industries__arrow" aria-hidden="true">
-                                    <svg>
-                                        <use href="#icon_arrow_right_3"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                    <a class="industries__item" href="#logistics-complexes">
+                        <span class="industries__icon-box" aria-hidden="true">
+                            <svg class="industries__icon"><use href="#icon_warehouse"></use></svg>
+                        </span>
+                        <span class="industries__name">Склады и логистические комплексы</span>
+                        <span class="industries__description">Большие площади и ремонт без остановки операционных процессов.</span>
+                        <svg class="industries__arrow" aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
+                    </a>
 
-                    </div>
-                </a>
-                <a class="industries__card" href="#commercial-buildings">
-                    <img class="industries__image" src="./images/industries/commercial-buildings.webp"
-                         loading="lazy" decoding="async" alt="">
-                    <span class="industries__shade" aria-hidden="true"></span>
-                    <div class="industries__body">
-                        <div class="industries__body-content">
-                            <div class="industries__name">Дата-центры</div>
-                            <div class="industries__desc">
-                                Объекты с критичными требованиями к герметичности и инженерным узлам.
-                                <div class="industries__arrow" aria-hidden="true">
-                                    <svg>
-                                        <use href="#icon_arrow_right_3"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <a class="industries__card" href="#data-centers">
-                    <img class="industries__image" src="./images/industries/data-centers.webp"
-                         loading="lazy" decoding="async" alt="">
-                    <span class="industries__shade" aria-hidden="true"></span>
-                    <div class="industries__body">
-                        <div class="industries__body-content">
-                            <div class="industries__name">Аэропорты и инфраструктурные объекты</div>
-                            <div class="industries__desc">
-                                Ответственные объекты с повышенными требованиями к организации работ.
-                                <div class="industries__arrow" aria-hidden="true">
-                                    <svg>
-                                        <use href="#icon_arrow_right_3"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                    <a class="industries__item" href="#data-centers">
+                        <span class="industries__icon-box" aria-hidden="true">
+                            <svg class="industries__icon"><use href="#icon_server"></use></svg>
+                        </span>
+                        <span class="industries__name">Дата-центры</span>
+                        <span class="industries__description">Объекты с критичными требованиями к герметичности и инженерным узлам.</span>
+                        <svg class="industries__arrow" aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
+                    </a>
 
-                    </div>
-                </a>
-                <a class="industries__card" href="#commercial-buildings">
-                    <img class="industries__image" src="./images/industries/selhoz.webp"
-                         loading="lazy" decoding="async" alt="">
-                    <span class="industries__shade" aria-hidden="true"></span>
-                    <div class="industries__body">
-                        <div class="industries__body-content">
-                            <div class="industries__name">Сельскохозяйственные комплексы</div>
-                            <div class="industries__desc">
-                                Ангары, хранилища и производственные здания агросектора.
-                                <div class="industries__arrow" aria-hidden="true">
-                                    <svg>
-                                        <use href="#icon_arrow_right_3"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                    <a class="industries__item" href="#infrastructure-facilities">
+                        <span class="industries__icon-box" aria-hidden="true">
+                            <svg class="industries__icon"><use href="#icon_plane"></use></svg>
+                        </span>
+                        <span class="industries__name">Аэропорты и инфраструктурные объекты</span>
+                        <span class="industries__description">Ответственные объекты с повышенными требованиями к организации работ.</span>
+                        <svg class="industries__arrow" aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
+                    </a>
 
-                    </div>
-                </a>
-                <a class="industries__card" href="#data-centers">
-                    <img class="industries__image" src="./images/industries/roof-konstruction.webp"
-                         loading="lazy" decoding="async" alt="">
-                    <span class="industries__shade" aria-hidden="true"></span>
-                    <div class="industries__body">
-                        <div class="industries__body-content">
-                            <div class="industries__name">Кровли сложной конфигурации
-                            </div>
-                            <div class="industries__desc">
-                                Сложная геометрия, множество примыканий, проходок и оборудования.
-                                <div class="industries__arrow" aria-hidden="true">
-                                    <svg>
-                                        <use href="#icon_arrow_right_3"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
+                    <a class="industries__item" href="#agricultural-complexes">
+                        <span class="industries__icon-box" aria-hidden="true">
+                            <svg class="industries__icon"><use href="#icon_wheat"></use></svg>
+                        </span>
+                        <span class="industries__name">Сельскохозяйственные комплексы</span>
+                        <span class="industries__description">Ангары, хранилища и производственные здания агросектора.</span>
+                        <svg class="industries__arrow" aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
+                    </a>
 
-                    </div>
-                </a>
+                    <a class="industries__item" href="#complex-roofs">
+                        <span class="industries__icon-box" aria-hidden="true">
+                            <svg class="industries__icon"><use href="#icon_roof"></use></svg>
+                        </span>
+                        <span class="industries__name">Кровли сложной конфигурации</span>
+                        <span class="industries__description">Сложная геометрия, множество примыканий, проходок и оборудования.</span>
+                        <svg class="industries__arrow" aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="industries__gallery" aria-hidden="true">
+                <div class="industries__gallery-item industries__gallery-item_main">
+                    <img class="industries__gallery-image" src="./images/industries/roof-konstruction.webp"
+                         loading="lazy" decoding="async" alt="">
+                </div>
+                <div class="industries__gallery-item industries__gallery-item_logistics">
+                    <img class="industries__gallery-image" src="./images/industries/selhoz.webp"
+                         loading="lazy" decoding="async" alt="">
+                </div>
+                <div class="industries__gallery-item industries__gallery-item_commercial">
+                    <img class="industries__gallery-image" src="./images/industries/commercial-buildings.webp"
+                         loading="lazy" decoding="async" alt="">
+                </div>
             </div>
         </div>
     </section>
     <section class="services" id="services" aria-labelledby="services-title">
+        <img class="services__background" src="./images/services/services-roof-sunset.png"
+             alt="" loading="lazy" decoding="async">
         <div class="services__container main-container">
             <div class="services__intro">
-                <p class="services__eyebrow">Услуги</p>
-                <h2 class="services__title" id="services-title">Решаем задачи промышленной кровли под ключ</h2>
+                <div class="services__eyebrow-row">
+                    <span class="services__eyebrow-line" aria-hidden="true"></span>
+                    <p class="services__eyebrow">Услуги</p>
+                </div>
+                <h2 class="services__title" id="services-title">
+                    Решаем задачи промышленной кровли <span>под ключ</span>
+                </h2>
                 <p class="services__description">От восстановления существующей кровли без демонтажа и поиска
                     причин протечек до устройства новых систем и работ на технически сложных участках.</p>
-            </div>
-
-            <div class="services__visual" aria-hidden="true">
-                <img class="services__image" src="./images/services/services-roof-sunset.webp" alt=""
-                     decoding="async">
             </div>
 
             <div class="services__grid">
                 <article class="services__card">
                     <span class="services__icon-box" aria-hidden="true">
-                        <svg class="services__icon services__icon_stroke"><use href="#ui-layers"></use></svg>
+                        <svg>
+                            <use href="#icon_check_mark"></use>
+                        </svg>
                     </span>
                     <h3 class="services__card-title">Ремонт промышленных кровель без демонтажа</h3>
                     <p class="services__card-text">Восстанавливаем существующую кровельную систему без полного
                         демонтажа.</p>
                     <a class="services__link" href="#consultation">
                         <span>Подробнее</span>
-                        <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                        <svg aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
                     </a>
                 </article>
 
                 <article class="services__card">
                     <span class="services__icon-box" aria-hidden="true">
-                        <svg class="services__icon services__icon_fill"><use href="#icon_home_v1"></use></svg>
+                        <svg><use href="#icon_check_mark"></use></svg>
                     </span>
                     <h3 class="services__card-title">Устройство промышленных кровель</h3>
                     <p class="services__card-text">Полный комплекс работ по устройству новой кровельной системы:
                         основание, утепление, гидроизоляция, узлы.</p>
                     <a class="services__link" href="#consultation">
                         <span>Подробнее</span>
-                        <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                        <svg aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
                     </a>
                 </article>
 
                 <article class="services__card">
                     <span class="services__icon-box" aria-hidden="true">
-                        <svg class="services__icon services__icon_stroke"><use href="#ui-search"></use></svg>
+                        <svg><use href="#icon_check_mark"></use></svg>
                     </span>
                     <h3 class="services__card-title">Устранение протечек, обследование и дефектовка</h3>
                     <p class="services__card-text">Определяем причины протечек, обследуем покрытие и узлы,
                         фиксируем дефекты и предлагаем техническое решение.</p>
                     <a class="services__link" href="#consultation">
                         <span>Подробнее</span>
-                        <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                        <svg aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
                     </a>
                 </article>
 
                 <article class="services__card">
                     <span class="services__icon-box" aria-hidden="true">
-                        <svg class="services__icon services__icon_stroke"><use href="#icon_share"></use></svg>
+                        <svg>
+                            <use href="#icon_check_mark"></use>
+                        </svg>
                     </span>
                     <h3 class="services__card-title">Ремонт сложных кровельных узлов</h3>
                     <p class="services__card-text">Парапеты, деформационные швы, проходки, световые фонари и зоны
                         инженерного оборудования.</p>
                     <a class="services__link" href="#consultation">
                         <span>Подробнее</span>
-                        <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                        <svg>
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
                     </a>
                 </article>
 
                 <article class="services__card">
                     <span class="services__icon-box" aria-hidden="true">
-                        <svg class="services__icon services__icon_stroke services__icon_wide"><use href="#icon_technical"></use></svg>
+                        <svg>
+                            <use href="#icon_check_mark"></use>
+                        </svg>
                     </span>
                     <h3 class="services__card-title">Ремонт сложнодоступных узлов в стеснённых условиях</h3>
                     <p class="services__card-text">Выполняем гидроизоляцию и ремонт в зонах с ограниченным
                         доступом: возле коммуникаций и на технически насыщенных участках кровли.</p>
                     <a class="services__link" href="#consultation">
                         <span>Подробнее</span>
-                        <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                        <svg>
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
                     </a>
                 </article>
 
                 <article class="services__card">
                     <span class="services__icon-box" aria-hidden="true">
-                        <svg class="services__icon services__icon_stroke"><use href="#icon_bucket_outline"></use></svg>
+                        <svg><use href="#icon_check_mark"></use></svg>
                     </span>
                     <h3 class="services__card-title">Гидроизоляция резервуаров и сооружений</h3>
                     <p class="services__card-text">Резервуары, фонтаны, технологические ёмкости, бетонные
                         конструкции и другие промышленные сооружения.</p>
                     <a class="services__link" href="#consultation">
                         <span>Подробнее</span>
-                        <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                        <svg>
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
                     </a>
                 </article>
             </div>
         </div>
     </section>
     <section class="roofing-systems" id="roofing" aria-labelledby="roofing-systems-title">
-        <img class="roofing-systems__background" src="./images/roofing-systems/roofing-systems-hero.webp?v=roofing-2" alt=""
+        <img class="roofing-systems__background" src="./images/roofing-systems/roofing-systems-hero.webp?v=roofing-2"
+             alt=""
              decoding="async">
         <div class="roofing-systems__veil" aria-hidden="true"></div>
 
         <div class="roofing-systems__container main-container">
-            <div class="roofing-systems__brand" aria-label="PROOF — промышленные кровельные решения">
-                <span class="roofing-systems__brand-word">PROOF</span>
-                <span class="roofing-systems__brand-divider" aria-hidden="true"></span>
-                <span class="roofing-systems__brand-copy">Промышленные кровельные решения</span>
-            </div>
-
             <div class="roofing-systems__intro">
+                <div class="roofing-systems__eyebrow-row">
+                    <span class="roofing-systems__eyebrow-line" aria-hidden="true"></span>
+                    <p class="roofing-systems__eyebrow">Ключевые технологии</p>
+                </div>
                 <h2 class="roofing-systems__title" id="roofing-systems-title">
-                    <span class="roofing-systems__title-line">Кровельные</span>
-                    <span class="roofing-systems__title-line roofing-systems__title-line_accent">системы</span>
+                    Кровельные системы, с которыми <span>мы работаем</span>
                 </h2>
-                <p class="roofing-systems__description">Проектируем, устраняем и восстанавливаем кровли<br>
-                    на промышленных и общественных объектах.</p>
+                <p class="roofing-systems__description">Технология подбирается исходя из конструкции кровли, состояния
+                    основания, условий эксплуатации и требований объекта.</p>
 
                 <div class="roofing-systems__actions">
-                    <a class="roofing-systems__cta button button_arrow" href="#consultation">
+                    <button class="button button_primary button_arrow">
                         <span>Подобрать решение</span>
-                        <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
-                    </a>
+                        <svg aria-hidden="true">
+                            <use href="#icon_arrow_right_3"></use>
+                        </svg>
+                    </button>
 
                     <ul class="roofing-systems__metrics" aria-label="Опыт компании">
                         <li class="roofing-systems__metric">
                             <svg class="roofing-systems__metric-icon" aria-hidden="true">
-                                <use href="#ui-layers"></use>
+                                <use href="#icon_calendar"></use>
                             </svg>
                             <span class="roofing-systems__metric-content">
                                 <strong class="roofing-systems__metric-value">20+</strong>
@@ -393,7 +406,8 @@
                             </span>
                         </li>
                         <li class="roofing-systems__metric">
-                            <svg class="roofing-systems__metric-icon roofing-systems__metric-icon_industrial" aria-hidden="true">
+                            <svg class="roofing-systems__metric-icon roofing-systems__metric-icon_industrial"
+                                 aria-hidden="true">
                                 <use href="#icon_industrial_width"></use>
                             </svg>
                             <span class="roofing-systems__metric-content">
@@ -407,7 +421,8 @@
 
             <div class="roofing-systems__grid">
                 <article class="roofing-systems__card">
-                    <img class="roofing-systems__card-image" src="./images/roofing-systems/liquid-systems.webp?v=roofing-2"
+                    <img class="roofing-systems__card-image"
+                         src="./images/roofing-systems/liquid-systems.webp?v=roofing-2"
                          loading="lazy" decoding="async" alt="">
                     <span class="roofing-systems__card-shade" aria-hidden="true"></span>
                     <div class="roofing-systems__card-body">
@@ -415,15 +430,19 @@
                         <h3 class="roofing-systems__card-title">Жидкие и напыляемые гидроизоляционные системы</h3>
                         <p class="roofing-systems__card-text">Бесшовные системы для ремонта, восстановления и
                             гидроизоляции промышленных кровель и сложных узлов.</p>
-                        <a class="roofing-systems__card-link" href="#consultation" aria-label="Подробнее о жидких и напыляемых системах">
+                        <a class="roofing-systems__card-link" href="#consultation"
+                           aria-label="Подробнее о жидких и напыляемых системах">
                             <span>Подробнее</span>
-                            <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                            <svg aria-hidden="true">
+                                <use href="#icon_arrow_right_3"></use>
+                            </svg>
                         </a>
                     </div>
                 </article>
 
                 <article class="roofing-systems__card">
-                    <img class="roofing-systems__card-image" src="./images/roofing-systems/bitumen-rolls.webp?v=roofing-2"
+                    <img class="roofing-systems__card-image"
+                         src="./images/roofing-systems/bitumen-rolls.webp?v=roofing-2"
                          loading="lazy" decoding="async" alt="">
                     <span class="roofing-systems__card-shade" aria-hidden="true"></span>
                     <div class="roofing-systems__card-body">
@@ -431,15 +450,19 @@
                         <h3 class="roofing-systems__card-title">Битумно-рулонные кровли</h3>
                         <p class="roofing-systems__card-text">Устройство, локальный и капитальный ремонт наплавляемых
                             и битумно-полимерных кровель.</p>
-                        <a class="roofing-systems__card-link" href="#consultation" aria-label="Подробнее о битумно-рулонных кровлях">
+                        <a class="roofing-systems__card-link" href="#consultation"
+                           aria-label="Подробнее о битумно-рулонных кровлях">
                             <span>Подробнее</span>
-                            <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                            <svg aria-hidden="true">
+                                <use href="#icon_arrow_right_3"></use>
+                            </svg>
                         </a>
                     </div>
                 </article>
 
                 <article class="roofing-systems__card">
-                    <img class="roofing-systems__card-image" src="./images/roofing-systems/membrane-roofing.webp?v=roofing-2"
+                    <img class="roofing-systems__card-image"
+                         src="./images/roofing-systems/membrane-roofing.webp?v=roofing-2"
                          loading="lazy" decoding="async" alt="">
                     <span class="roofing-systems__card-shade" aria-hidden="true"></span>
                     <div class="roofing-systems__card-body">
@@ -447,9 +470,12 @@
                         <h3 class="roofing-systems__card-title">Мембранные кровли</h3>
                         <p class="roofing-systems__card-text">Устройство и ремонт мембранных систем, восстановление
                             швов, примыканий и технически насыщенных участков.</p>
-                        <a class="roofing-systems__card-link" href="#consultation" aria-label="Подробнее о мембранных кровлях">
+                        <a class="roofing-systems__card-link" href="#consultation"
+                           aria-label="Подробнее о мембранных кровлях">
                             <span>Подробнее</span>
-                            <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                            <svg aria-hidden="true">
+                                <use href="#icon_arrow_right_3"></use>
+                            </svg>
                         </a>
                     </div>
                 </article>
@@ -458,23 +484,29 @@
     </section>
 
     <section class="projects-gallery" id="projects" aria-labelledby="projects-gallery-title">
-        <img class="projects-gallery__background" src="./images/projects-gallery/projects-gallery-background.webp?v=projects-1"
+        <img class="projects-gallery__background"
+             src="./images/projects-gallery/projects-gallery-background.webp?v=projects-1"
              alt="" loading="lazy" decoding="async">
         <span class="projects-gallery__veil" aria-hidden="true"></span>
 
         <div class="projects-gallery__container main-container">
             <div class="projects-gallery__header">
                 <div class="projects-gallery__intro">
-                    <p class="projects-gallery__eyebrow">Знаковые объекты</p>
+                    <div class="projects-gallery_eyebrow-row">
+                        <span class="projects-gallery__eyebrow-line" aria-hidden="true"></span>
+                        <p class="projects-gallery_eyebrow">Знаковые объекты</p>
+                    </div>
                     <h2 class="projects-gallery__title" id="projects-gallery-title">Опыт работ на объектах<br>
                         высокой ответственности</h2>
                     <p class="projects-gallery__description">Реализуем комплексные решения по устройству, ремонту<br>
                         и гидроизоляции кровель на промышленных и государственных объектах.</p>
                 </div>
 
-                <a class="projects-gallery__all button button_arrow" href="#projects-grid">
+                <a class="button button_primary button_arrow" href="#projects-grid">
                     <span>Смотреть все объекты</span>
-                    <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                    <svg aria-hidden="true">
+                        <use href="#icon_arrow_right_3"></use>
+                    </svg>
                 </a>
             </div>
 
@@ -494,13 +526,16 @@
                     </div>
 
                     <div class="projects-gallery__body">
-                        <h3 class="projects-gallery__card-title">Гидроизоляция кровли объекта критической инфраструктуры</h3>
+                        <h3 class="projects-gallery__card-title">Гидроизоляция кровли объекта критической
+                            инфраструктуры</h3>
                         <p class="projects-gallery__card-text">Сложные проходки, технологическое оборудование,
                             повышенные требования к герметичности.</p>
                         <div class="projects-gallery__footer">
                             <a class="projects-gallery__link" href="#consultation">
                                 <span>Подробнее</span>
-                                <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                                <svg aria-hidden="true">
+                                    <use href="#icon_arrow_right_3"></use>
+                                </svg>
                             </a>
                             <span class="projects-gallery__location">
                                 <svg aria-hidden="true"><use href="#ui-map-pin"></use></svg>
@@ -518,7 +553,8 @@
                     <span class="projects-gallery__shade" aria-hidden="true"></span>
 
                     <div class="projects-gallery__badge">
-                        <svg class="projects-gallery__badge-icon projects-gallery__badge-icon_industrial" aria-hidden="true">
+                        <svg class="projects-gallery__badge-icon projects-gallery__badge-icon_industrial"
+                             aria-hidden="true">
                             <use href="#icon_industrial_width"></use>
                         </svg>
                         <span>Производство</span>
@@ -531,7 +567,9 @@
                         <div class="projects-gallery__footer">
                             <a class="projects-gallery__link" href="#consultation">
                                 <span>Подробнее</span>
-                                <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                                <svg aria-hidden="true">
+                                    <use href="#icon_arrow_right_3"></use>
+                                </svg>
                             </a>
                             <span class="projects-gallery__location">
                                 <svg aria-hidden="true"><use href="#ui-map-pin"></use></svg>
@@ -557,11 +595,14 @@
 
                     <div class="projects-gallery__body">
                         <h3 class="projects-gallery__card-title">Восстановление кровли после многократных ремонтов</h3>
-                        <p class="projects-gallery__card-text">Системные протечки и комплексная схема восстановления.</p>
+                        <p class="projects-gallery__card-text">Системные протечки и комплексная схема
+                            восстановления.</p>
                         <div class="projects-gallery__footer">
                             <a class="projects-gallery__link" href="#consultation">
                                 <span>Подробнее</span>
-                                <svg aria-hidden="true"><use href="#icon_arrow_right_3"></use></svg>
+                                <svg aria-hidden="true">
+                                    <use href="#icon_arrow_right_3"></use>
+                                </svg>
                             </a>
                             <span class="projects-gallery__location">
                                 <svg aria-hidden="true"><use href="#ui-map-pin"></use></svg>
@@ -571,6 +612,248 @@
                     </div>
                 </article>
             </div>
+        </div>
+    </section>
+
+    <section class="project-geography" data-project-geography data-yandex-api-key=""
+             aria-labelledby="project-geography-title">
+        <div class="project-geography__container main-container">
+            <div class="project-geography__header">
+                <div class="project-geography__intro">
+                    <div class="project-geography_eyebrow-row">
+                        <span class="project-geography__eyebrow-line" aria-hidden="true"></span>
+                        <p class="project-geography__eyebrow">География проектов</p>
+                    </div>
+                    <h2 class="project-geography__title" id="project-geography-title">Опыт, который видно на карте</h2>
+                    <p class="project-geography__description">Карта выполненных объектов показывает реальную географию
+                        работ ПРУФ. Выберите город — справа откроется информация о проекте.</p>
+                </div>
+
+                <a class=" button button_primary button_arrow" href="#consultation">
+                    <span>Обсудить объект в вашем регионе</span>
+                    <svg aria-hidden="true">
+                        <use href="#icon_arrow_right_3"></use>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="project-geography__layout">
+                <div class="project-geography__map-panel">
+                    <div class="project-geography__map" data-project-map
+                         aria-label="Карта реализованных проектов ПРУФ"></div>
+
+                    <div class="project-geography__selectors" aria-label="Выбор проекта по городу">
+                        <button class="project-geography__selector" type="button" data-project-select="moscow"
+                                aria-pressed="true">
+                            <svg aria-hidden="true">
+                                <use href="#ui-map-pin"></use>
+                            </svg>
+                            <span>Москва</span>
+                        </button>
+                        <button class="project-geography__selector" type="button" data-project-select="lipetsk"
+                                aria-pressed="false">
+                            <svg aria-hidden="true">
+                                <use href="#ui-map-pin"></use>
+                            </svg>
+                            <span>Липецк</span>
+                        </button>
+                        <button class="project-geography__selector" type="button" data-project-select="tula"
+                                aria-pressed="false">
+                            <svg aria-hidden="true">
+                                <use href="#ui-map-pin"></use>
+                            </svg>
+                            <span>Тула</span>
+                        </button>
+                    </div>
+                </div>
+
+                <article class="project-geography__card" data-project-card aria-live="polite">
+                    <img class="project-geography__image" data-project-image
+                         src="./images/projects-gallery/project-data-center.webp?v=projects-1"
+                         alt="Комплекс зданий дата-центра с плоскими кровлями"
+                         loading="lazy" decoding="async">
+                    <div class="project-geography__body">
+                        <div class="project-geography__meta">
+                            <span data-project-city>Москва</span>
+                            <span data-project-type>2025г</span>
+                        </div>
+                        <h3 class="project-geography__card-title" data-project-title>Гидроизоляция кровли объекта
+                            критической инфраструктуры</h3>
+                        <dl class="project-geography__details">
+                            <div>
+                                <dt>Площадь</dt>
+                                <dd data-project-detail-type>30 000</dd>
+                            </div>
+                            <div>
+                                <dt>Технология</dt>
+                                <dd data-project-solution>Гидроизоляция кровли</dd>
+                            </div>
+                        </dl>
+                        <p class="project-geography__card-text" data-project-description>Сложные проходки,
+                            технологическое оборудование, повышенные требования к герметичности.</p>
+                        <a class="project-geography__link" href="#projects-grid">
+                            <span>Смотреть все выполненные объекты</span>
+                            <svg aria-hidden="true">
+                                <use href="#icon_arrow_right_3"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="about-title">
+        <div class="about__container">
+            <div class="about__media">
+                <div class="about__image-wrap">
+                    <img class="about__image" src="./images/about/proof-workers-roof-sunset.png"
+                         alt="Специалисты ПРУФ на промышленной кровле"
+                         decoding="async">
+                </div>
+
+                <ul class="about__trust-list" aria-label="Подтверждение компетенций компании">
+                    <li class="about__trust-item">
+                        <svg class="about__trust-icon about__trust-icon_fill" aria-hidden="true">
+                            <use href="#icon_protection"></use>
+                        </svg>
+                        <strong class="about__trust-title">СРО</strong>
+                        <span class="about__trust-text">Членство и допуски<br> на все виды работ</span>
+                    </li>
+                    <li class="about__trust-item">
+                        <svg class="about__trust-icon" aria-hidden="true">
+                            <use href="#about-document"></use>
+                        </svg>
+                        <strong class="about__trust-title">Рекомендации</strong>
+                        <span class="about__trust-text">Положительные<br> отзывы заказчиков</span>
+                    </li>
+                    <li class="about__trust-item">
+                        <svg class="about__trust-icon" aria-hidden="true">
+                            <use href="#ui-layers"></use>
+                        </svg>
+                        <strong class="about__trust-title">Презентации</strong>
+                        <span class="about__trust-text">Материалы для тендеров<br> и согласований</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="about__content">
+                <p class="about__eyebrow">о компании</p>
+                <h2 class="about__title" id="about-title">ПРУФ — специализированный подрядчик по промышленной
+                    гидроизоляции</h2>
+                <p class="about__description">Работаем с промышленными кровлями, технически сложными объектами и
+                    большими площадями. Подбираем решение под конструкцию, состояние объекта и условия эксплуатации.</p>
+
+                <div class="about__focus-grid">
+                    <article class="about__focus-card">
+                        <svg class="about__focus-icon" aria-hidden="true">
+                            <use href="#about-expand"></use>
+                        </svg>
+                        <h3 class="about__focus-title">Большие площади</h3>
+                        <p class="about__focus-text">Проекты от 500 м² и крупные промышленные кровли.</p>
+                    </article>
+                    <article class="about__focus-card">
+                        <svg class="about__focus-icon" aria-hidden="true">
+                            <use href="#about-buildings"></use>
+                        </svg>
+                        <h3 class="about__focus-title">Сложные объекты</h3>
+                        <p class="about__focus-text">Дата-центры, аэропорты, государственные и промышленные объекты.</p>
+                    </article>
+                    <article class="about__focus-card">
+                        <svg class="about__focus-icon" aria-hidden="true">
+                            <use href="#ui-map-pin"></use>
+                        </svg>
+                        <h3 class="about__focus-title">Работа по России</h3>
+                        <p class="about__focus-text">Организуем выполнение работ в разных регионах страны.</p>
+                    </article>
+                </div>
+
+                <a class="about__cta button button_primary button_arrow" href="#consultation">
+                    <span>Подробнее о компании</span>
+                    <svg aria-hidden="true">
+                        <use href="#icon_arrow_right_3"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="consultation" id="consultation" aria-labelledby="consultation-title">
+        <div class="consultation__container main-container">
+            <div class="consultation__content">
+                <div class="project-geography_eyebrow-row">
+                    <span class="project-geography__eyebrow-line" aria-hidden="true"></span>
+                    <p class="project-geography__eyebrow">Предварительная оценка объектав</p>
+                </div>
+                <h2 class="consultation__title" id="consultation-title">Получите предварительное техническое решение и
+                    ориентир <span>по стоимости работ</span></h2>
+                <p class="consultation__description">Пришлите площадь, регион, тип кровли и несколько фотографий. Если
+                    есть проект или ТЗ — приложите его, чтобы мы точнее оценили задачу и предложили подходящий вариант
+                    решения..</p>
+            </div>
+
+            <form class="consultation__form" action="#" method="post" enctype="multipart/form-data">
+                <label class="consultation__field">
+                    <span class="consultation__field-label">Имя</span>
+                    <input class="consultation__control" type="text" name="name" placeholder="Имя"
+                           autocomplete="name" required>
+                </label>
+                <label class="consultation__field">
+                    <span class="consultation__field-label">Телефон</span>
+                    <input class="consultation__control" type="tel" name="phone" placeholder="Телефон"
+                           autocomplete="tel" inputmode="tel" required>
+                </label>
+                <label class="consultation__field">
+                    <span class="consultation__field-label">Компания</span>
+                    <input class="consultation__control" type="text" name="company" placeholder="Компания"
+                           autocomplete="organization">
+                </label>
+                <label class="consultation__field">
+                    <span class="consultation__field-label">Город или регион</span>
+                    <input class="consultation__control" type="text" name="region" placeholder="Город / регион"
+                           autocomplete="address-level1" required>
+                </label>
+                <label class="consultation__field">
+                    <span class="consultation__field-label">Площадь кровли в квадратных метрах</span>
+                    <input class="consultation__control" type="number" name="roof-area" min="1" step="1"
+                           inputmode="decimal" placeholder="Площадь кровли, м²" required>
+                </label>
+                <label class="consultation__field consultation__select-wrap">
+                    <span class="consultation__field-label">Тип задачи</span>
+                    <select class="consultation__control consultation__select" name="task" required>
+                        <option value="" selected disabled>Тип задачи</option>
+                        <option value="repair">Ремонт кровли</option>
+                        <option value="new-roof">Устройство новой кровли</option>
+                        <option value="inspection">Обследование и дефектовка</option>
+                        <option value="waterproofing">Гидроизоляция объекта</option>
+                    </select>
+                    <svg class="consultation__select-icon" aria-hidden="true">
+                        <use href="#ui-chevron-down"></use>
+                    </svg>
+                </label>
+                <label class="consultation__field consultation__field_wide">
+                    <span class="consultation__field-label">Описание объекта и задачи</span>
+                    <textarea class="consultation__control consultation__textarea" name="message"
+                              placeholder="Кратко опишите объект и задачу" required></textarea>
+                </label>
+                <div class="consultation__file consultation__field_wide">
+                    <input class="consultation__file-input" type="file" id="consultation-files" name="files[]"
+                           accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" multiple>
+                    <label class="consultation__file-label button" for="consultation-files">
+                        <svg aria-hidden="true">
+                            <use href="#consultation-paperclip"></use>
+                        </svg>
+                        <span>Прикрепить проект / ТЗ / фотографии</span>
+                    </label>
+                </div>
+                <button class="consultation__field_wide button button_primary button_arrow"
+                        type="submit">
+                    <span>Получить техническое решение</span>
+                    <svg aria-hidden="true">
+                        <use href="#icon_arrow_right_3"></use>
+                    </svg>
+                </button>
+            </form>
         </div>
     </section>
 </main>

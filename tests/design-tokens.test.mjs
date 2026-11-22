@@ -10,6 +10,8 @@ const styleFiles = [
     new URL('../main/services.css', import.meta.url),
     new URL('../main/roofing-systems.css', import.meta.url),
     new URL('../main/projects-gallery.css', import.meta.url),
+    new URL('../main/project-geography.css', import.meta.url),
+    new URL('../main/consultation.css', import.meta.url),
 ];
 
 async function readStyles() {

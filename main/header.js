@@ -13,8 +13,15 @@
     const navigation = header.querySelector('[data-header-navigation]');
     if (!toggle || !navigation) return;
 
-    const desktopMedia = window.matchMedia('(min-width: 1025px)');
+    const desktopMedia = window.matchMedia('(min-width: 1121px)');
     const navigationLinks = navigation.querySelectorAll('a');
+
+    const updateScrolledState = () => {
+        header.classList.toggle('header--scrolled', window.scrollY > 24);
+    };
+
+    updateScrolledState();
+    window.addEventListener?.('scroll', updateScrolledState, { passive: true });
 
     const setMenuState = (isOpen, { returnFocus = false } = {}) => {
         header.classList.toggle('header--mobile-open', isOpen);

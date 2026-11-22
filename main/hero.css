@@ -9,17 +9,20 @@ html:has(.hero) {
     color: var(--color-text-inverse);
     background-image: linear-gradient(90deg,
     color-mix(in srgb, var(--color-bg-inverse) 88%, transparent) 0%,
-    color-mix(in srgb, var(--color-bg-inverse) 62%, transparent) 36%,
-    color-mix(in srgb, var(--color-bg-inverse) 20%, transparent) 63%,
+    color-mix(in srgb, var(--color-bg-inverse) 64%, transparent) 37%,
+    color-mix(in srgb, var(--color-bg-inverse) 22%, transparent) 64%,
     color-mix(in srgb, var(--color-bg-inverse) 4%, transparent) 100%),
     linear-gradient(0deg,
-            color-mix(in srgb, var(--color-bg-inverse) 38%, transparent) 0%,
-            transparent 50%),
+            color-mix(in srgb, var(--color-bg-inverse) 72%, transparent) 0%,
+            transparent 34%),
     url("./images/hero.png");
-    background-position: top;
+    background-position: center;
     background-size: cover;
     padding-block: var(--section-space-xl);
-    margin-bottom: var(--section-space-lg);
+
+    @media (max-width: 576px) {
+        padding: 90px 0 30px;
+    }
 }
 
 .hero__decor {
@@ -36,145 +39,98 @@ html:has(.hero) {
             color-mix(in srgb, var(--teal-800) 68%, transparent) 88.5% 100%);
 }
 
-.hero__content {
+.hero__container {
     position: relative;
     z-index: 1;
-    width: min(100%, 49rem);
+    display: flex;
+    flex-direction: column;
 }
 
-.hero__accent {
-    display: block;
-    width: 4.7rem;
-    height: 4px;
-    margin-bottom: calc(var(--space-24) + var(--space-4));
-    background-color: var(--color-brand);
-}
-
-.hero__eyebrow {
-    margin-bottom: var(--section-space-md);
-    font-size: clamp(1.35rem, 1.9vw, 1.9rem);
-    font-weight: var(--fw-regular);
-    line-height: 1.25;
-}
 
 .hero__title {
-    max-width: 49rem;
-    font-size: clamp(3.2rem, 4.2vw, 4rem);
+    max-width: 54rem;
+    margin-bottom: var(--section-space-md);
+    font-size: 4.375rem;
     font-weight: var(--fw-bold);
     line-height: 1.04;
     letter-spacing: -0.035em;
     text-wrap: balance;
-    margin-bottom: var(--section-space-lg);
+
+    @media (max-width: 576px) {
+        font-size: var(--fz-4xl);
+    }
+
+    span {
+        color: var(--color-primary);
+    }
 }
 
 .hero__description {
-    color: color-mix(in srgb, var(--color-text-inverse) 83%, transparent);
-    font-size: clamp(1.2rem, 1.65vw, 1.75rem);
-    font-weight: var(--fw-regular);
-    line-height: 1.28;
-    margin-bottom: var(--section-space-md);
+    margin-bottom: var(--section-space-lg);
+    color: var(--color-text-inverse);
+    font-size: var(--fz-xl);
+    max-width: 650px;
+
+    @media (max-width: 576px) {
+        font-size: var(--fz-base);
+    }
 }
 
 .hero__actions {
     display: flex;
     align-items: center;
     gap: var(--section-space-sm);
-
-    .button{
-        font-size: var(--fz-lg);
-    }
+    margin-bottom: var(--section-space-lg);
 }
-
 
 @media (max-width: 1320px) {
-    .hero__content {
-        width: min(100%, 44rem);
-    }
-
-    .hero__title {
-        font-size: clamp(2.9rem, 4.6vw, 3.75rem);
-    }
-
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1120px) {
     .hero {
         background-position: 61% center;
     }
 
-    .hero__content {
-        width: min(100%, 39rem);
+    .hero__desktop-break {
+        display: none;
     }
-
-    .hero__title {
-        font-size: clamp(2.65rem, 6.2vw, 3.65rem);
-    }
-
-    .hero__description {
-        font-size: clamp(1.15rem, 2.5vw, 1.5rem);
-    }
-
 }
+
 
 @media (max-width: 768px) {
     .hero {
         background-image: linear-gradient(90deg,
-        color-mix(in srgb, var(--color-bg-inverse) 90%, transparent) 0%,
-        color-mix(in srgb, var(--color-bg-inverse) 68%, transparent) 70%,
-        color-mix(in srgb, var(--color-bg-inverse) 38%, transparent) 100%),
+        color-mix(in srgb, var(--color-bg-inverse) 92%, transparent) 0%,
+        color-mix(in srgb, var(--color-bg-inverse) 72%, transparent) 70%,
+        color-mix(in srgb, var(--color-bg-inverse) 42%, transparent) 100%),
         linear-gradient(0deg,
-                color-mix(in srgb, var(--color-bg-inverse) 45%, transparent) 0%,
-                color-mix(in srgb, var(--color-bg-inverse) 5%, transparent) 60%),
+                color-mix(in srgb, var(--color-bg-inverse) 82%, transparent) 0%,
+                color-mix(in srgb, var(--color-bg-inverse) 8%, transparent) 70%),
         url("./images/hero.png");
         background-position: 65% center;
     }
 
     .hero__decor {
-        opacity: 0.68;
-        background: linear-gradient(124deg,
-        transparent 0 79.5%,
-        color-mix(in srgb, var(--teal-500) 65%, transparent) 79.5% 88.5%,
-        transparent 88.5%),
-        linear-gradient(124deg,
-                transparent 0 88.5%,
-                color-mix(in srgb, var(--teal-800) 62%, transparent) 88.5% 100%);
-    }
-
-    .hero__accent {
-        width: 3.75rem;
-        margin-bottom: var(--space-24);
-    }
-
-    .hero__eyebrow {
-        font-size: clamp(1.05rem, 3.5vw, 1.35rem);
-    }
-
-    .hero__title {
-        font-size: clamp(2.15rem, 8vw, 3.15rem);
-        line-height: 1.08;
-    }
-
-    .hero__description {
-        font-size: clamp(1rem, 3.5vw, 1.25rem);
+        opacity: 0.55;
     }
 
     .hero__actions {
         display: grid;
-        width: min(100%, 23rem);
+        width: min(100%, 24rem);
     }
-
 }
 
 @media (max-width: 576px) {
 
-    .hero__title {
-        font-size: clamp(1.9rem, 9.4vw, 2rem);
-    }
-
-
     .hero__decor {
         opacity: 0;
     }
+
+    .hero__actions {
+        width: 100%;
+    }
+
+    .hero__actions .button {
+        width: 100%;
+    }
 }
-
-
