@@ -1,40 +1,27 @@
-# Design QA — Consultation
+# Design QA — About transparency
 
-- Source visual truth: `/Users/a1111/Desktop/форма.png`.
-- Source background: `/Users/a1111/Desktop/Капли на графитовой мембране рассветной крыши.png`.
-- Implementation: `http://127.0.0.1:4173/main/#consultation`.
-- Implementation screenshot: Codex Desktop in-app Browser session capture.
-- Viewport: 1672 × 941 CSS px; source and implementation compared at 1:1 density.
-- State: empty form, default select option, no attached files.
-
-## Full-view comparison
-
-- The source and implementation were rendered together in one side-by-side comparison view.
-- The section keeps the source proportions: left copy, right 720 px form panel, 941 px section height and the supplied roof image.
-- The form starts on the same visual line as the eyebrow label; field heights, two-column rhythm, radii and CTA placement match the source.
-- The sticky site header remains visible by product requirement; this is the only intentional difference from the isolated source block.
+- Source detail: `/var/folders/wz/hg0bhl8n2pb2xkxvsp4f2mp00000gn/T/codex-clipboard-7958fcc0-c07c-4e89-b301-eb0af481ca8d.png`.
+- Implementation: `http://127.0.0.1:4173/main/#about`.
+- Browser comparison viewport: 1280 × 720 CSS px.
 
 ## Focused comparison
 
-- Typography: the desktop heading uses the project Montserrat family and matches the source five-line wrapping.
-- Spacing: the desktop content begins around 100 px from the left, while the form begins around 874 px and remains 720 px wide.
-- Colors: only project semantic variables are used; the form uses a neutral translucent surface and the CTA uses the existing teal tokens.
-- Image quality: the supplied 1536 × 1024 image is used directly with responsive cover cropping.
-- Copy: all source labels, field placeholders and CTA text are preserved.
+- The photo now fills the complete 672 px media height and continues behind the trust panel.
+- The trust panel overlays the image with a semi-transparent dark teal gradient derived only from existing color variables.
+- The desktop media geometry is unchanged: upper-right radius 150 px, lower-right radius 32 px.
+- Text, icons, dividers and the supplied image asset remain unchanged.
 
-## Responsive, interaction and accessibility checks
+## Responsive and accessibility checks
 
-- Checked desktop and responsive widths: 1672, 1440, 1280, 1024, 768, 576, 375 and 320 px.
-- At 1120 px the content and form stack; at 576 px the form becomes one column.
-- No horizontal overflow at 375 or 320 px.
-- Required inputs have programmatic labels; the select, textarea and multi-file control remain native and keyboard accessible.
-- Filled inputs and the task select were tested with local sample values; six required controls are exposed.
-- Focus styles, reduced-motion handling and touch-safe hover rules are present.
+- At 826 px the photo and trust panel still share one responsive grid area without horizontal overflow.
+- At 768 px and below the existing image ratios and stacked trust items are preserved.
+- Semantic list structure, image alternative text and existing keyboard behavior remain intact.
+- Protected design-system files were not edited.
 
 ## Comparison history
 
-- P2: the 320 px heading clipped the word “предварительное”. Fixed by reducing the mobile display size; title and form scroll widths now equal their client widths.
-- P2: the first desktop pass wrapped the heading differently from the source. Fixed by widening the left grid track, shifting the form to the source position and tuning the display size.
-- Post-fix side-by-side comparison shows no actionable P0, P1 or P2 differences.
+- RED: the image height was 480 px inside a 672 px media block and did not overlap the 192 px trust panel.
+- GREEN: the image height is 672 px, the panel overlaps it, and the computed gradient contains alpha values of 0.88 and 0.82.
+- No actionable P0, P1 or P2 differences remain for the requested transparency change.
 
 final result: passed

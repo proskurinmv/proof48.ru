@@ -49,6 +49,7 @@
     color: var(--color-primary);
     fill: var(--color-primary);
     stroke: var(--color-primary);
+    stroke-width:19;
 
     @media (max-width: 576px) {
         width: 40px;

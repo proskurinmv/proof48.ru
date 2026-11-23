@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./roofing-systems.css">
     <link rel="stylesheet" href="./projects-gallery.css">
     <link rel="stylesheet" href="./project-geography.css">
-    <link rel="stylesheet" href="./about.css?v=about-1">
+    <link rel="stylesheet" href="./about.css?v=about-2">
     <link rel="stylesheet" href="./consultation.css?v=consultation-1">
     <script src="./header.js" defer></script>
     <script src="./project-geography.js" defer></script>
@@ -111,7 +111,7 @@
                     <ul class="stats__list">
                         <li class="stats__item">
                             <svg class="stats__icon" aria-hidden="true">
-                                <use href="#ui-layers"></use>
+                                <use href="#icon_layers"></use>
                             </svg>
                             <div class="stats__content">
                                 <div class="stats__value-line">
@@ -123,7 +123,7 @@
                         </li>
                         <li class="stats__item">
                             <svg class="stats__icon" aria-hidden="true">
-                                <use href="#ui-map-pin"></use>
+                                <use href="#map-20"></use>
                             </svg>
                             <div class="stats__content">
                                 <div class="stats__value-line">
@@ -538,7 +538,7 @@
                                 </svg>
                             </a>
                             <span class="projects-gallery__location">
-                                <svg aria-hidden="true"><use href="#ui-map-pin"></use></svg>
+                                <svg aria-hidden="true"><use href="#map-20"></use></svg>
                                 <span>Москва</span>
                             </span>
                         </div>
@@ -572,7 +572,7 @@
                                 </svg>
                             </a>
                             <span class="projects-gallery__location">
-                                <svg aria-hidden="true"><use href="#ui-map-pin"></use></svg>
+                                <svg aria-hidden="true"><use href="#map-20"></use></svg>
                                 <span>Липецк</span>
                             </span>
                         </div>
@@ -605,7 +605,7 @@
                                 </svg>
                             </a>
                             <span class="projects-gallery__location">
-                                <svg aria-hidden="true"><use href="#ui-map-pin"></use></svg>
+                                <svg aria-hidden="true"><use href="#map-20"></use></svg>
                                 <span>Тула</span>
                             </span>
                         </div>
@@ -646,21 +646,21 @@
                         <button class="project-geography__selector" type="button" data-project-select="moscow"
                                 aria-pressed="true">
                             <svg aria-hidden="true">
-                                <use href="#ui-map-pin"></use>
+                                <use href="#map-20"></use>
                             </svg>
                             <span>Москва</span>
                         </button>
                         <button class="project-geography__selector" type="button" data-project-select="lipetsk"
                                 aria-pressed="false">
                             <svg aria-hidden="true">
-                                <use href="#ui-map-pin"></use>
+                                <use href="#map-20"></use>
                             </svg>
                             <span>Липецк</span>
                         </button>
                         <button class="project-geography__selector" type="button" data-project-select="tula"
                                 aria-pressed="false">
                             <svg aria-hidden="true">
-                                <use href="#ui-map-pin"></use>
+                                <use href="#map-20"></use>
                             </svg>
                             <span>Тула</span>
                         </button>
@@ -712,34 +712,37 @@
                          decoding="async">
                 </div>
 
-                <ul class="about__trust-list" aria-label="Подтверждение компетенций компании">
-                    <li class="about__trust-item">
-                        <svg class="about__trust-icon about__trust-icon_fill" aria-hidden="true">
-                            <use href="#icon_protection"></use>
+                <div class="about__trust-list" aria-label="Подтверждение компетенций компании">
+                    <a href="" class="about__trust-item">
+                        <svg class="about__trust-icon" aria-hidden="true">
+                            <use href="#icon_sgr"></use>
                         </svg>
                         <strong class="about__trust-title">СРО</strong>
                         <span class="about__trust-text">Членство и допуски<br> на все виды работ</span>
-                    </li>
-                    <li class="about__trust-item">
+                    </a>
+                    <a href="" class="about__trust-item">
                         <svg class="about__trust-icon" aria-hidden="true">
-                            <use href="#about-document"></use>
+                            <use href="#icon_sootvetstvie"></use>
                         </svg>
                         <strong class="about__trust-title">Рекомендации</strong>
                         <span class="about__trust-text">Положительные<br> отзывы заказчиков</span>
-                    </li>
-                    <li class="about__trust-item">
+                    </a>
+                    <a href="" class="about__trust-item">
                         <svg class="about__trust-icon" aria-hidden="true">
-                            <use href="#ui-layers"></use>
+                            <use href="#icon_layers"></use>
                         </svg>
                         <strong class="about__trust-title">Презентации</strong>
                         <span class="about__trust-text">Материалы для тендеров<br> и согласований</span>
-                    </li>
-                </ul>
+                    </a>
+                </div>
             </div>
 
             <div class="about__content">
-                <p class="about__eyebrow">о компании</p>
-                <h2 class="about__title" id="about-title">ПРУФ — специализированный подрядчик по промышленной
+                <div class="about__eyebrow-row">
+                    <span class="about__eyebrow-line" aria-hidden="true"></span>
+                    <p class="about__eyebrow">о компании</p>
+                </div>
+                <h2 class="about__title" id="about-title">ПРУФ — <span>специализированный подрядчик</span> по промышленной
                     гидроизоляции</h2>
                 <p class="about__description">Работаем с промышленными кровлями, технически сложными объектами и
                     большими площадями. Подбираем решение под конструкцию, состояние объекта и условия эксплуатации.</p>
@@ -747,21 +750,21 @@
                 <div class="about__focus-grid">
                     <article class="about__focus-card">
                         <svg class="about__focus-icon" aria-hidden="true">
-                            <use href="#about-expand"></use>
+                            <use href="#icon_poloschad"></use>
                         </svg>
                         <h3 class="about__focus-title">Большие площади</h3>
                         <p class="about__focus-text">Проекты от 500 м² и крупные промышленные кровли.</p>
                     </article>
                     <article class="about__focus-card">
                         <svg class="about__focus-icon" aria-hidden="true">
-                            <use href="#about-buildings"></use>
+                            <use href="#icon_industrial_width"></use>
                         </svg>
                         <h3 class="about__focus-title">Сложные объекты</h3>
                         <p class="about__focus-text">Дата-центры, аэропорты, государственные и промышленные объекты.</p>
                     </article>
                     <article class="about__focus-card">
                         <svg class="about__focus-icon" aria-hidden="true">
-                            <use href="#ui-map-pin"></use>
+                            <use href="#map-20"></use>
                         </svg>
                         <h3 class="about__focus-title">Работа по России</h3>
                         <p class="about__focus-text">Организуем выполнение работ в разных регионах страны.</p>
