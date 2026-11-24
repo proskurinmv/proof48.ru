@@ -81,6 +81,7 @@ html.lenis.lenis-smooth {
 .hero__container {
     flex: 0 1 auto;
     justify-content: center;
+    h100%
 }
 
 .hero__content {
@@ -123,8 +124,7 @@ html.lenis.lenis-smooth {
 }
 
 .hero .stats {
-    margin-top: var(--space-40);
-    padding-top: auto;
+    margin-top: auto;
     border-top: 1px solid var(--color-border-inverse);
 }
 
