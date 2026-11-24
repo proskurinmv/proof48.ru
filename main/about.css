@@ -171,7 +171,7 @@
 }
 
 .about__focus-card {
-    padding: var(--section-space-lg) var(--section-space-md);
+    padding: var(--section-space-md) var(--section-space-sm);
     border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
     border-radius: var(--radius-2xl);
     background-color: var(--teal-50);
