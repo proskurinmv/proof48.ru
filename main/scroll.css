@@ -78,17 +78,6 @@ html.lenis.lenis-smooth {
     opacity: .55;
 }
 
-.hero__container {
-    flex: 0 1 auto;
-    justify-content: center;
-    h100%
-}
-
-.hero__content {
-    margin-block: auto;
-    padding-block: var(--space-32);
-}
-
 .hero__eyebrow {
     display: flex;
     align-items: center;

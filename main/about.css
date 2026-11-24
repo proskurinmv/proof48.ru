@@ -6,7 +6,6 @@
 
 .about__container {
     display: grid;
-    width: 100%;
     min-width: 0;
     grid-template-columns: minmax(0, 40%) minmax(0, 1fr);
     gap: var(--space-80);
@@ -101,7 +100,7 @@
 .about__content {
     width: min(100%, 50rem);
     min-width: 0;
-    padding-top: var(--space-8);
+    margin-top: auto;
 }
 
 .about__eyebrow-row {

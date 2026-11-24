@@ -93,7 +93,7 @@
             lenis.on('scroll', ScrollTrigger.update);
             tick = time => lenis?.raf(time * 1000);
             gsap.ticker.add(tick);
-            window.proofScrollTo = (top, done) => lenis.scrollTo(top, { duration: .95, force: true, easing: t => 1 - Math.pow(1 - t, 4), onComplete: done });
+            window.proofScrollTo = (top, done) => lenis.scrollTo(top, { duration: .45, force: true, easing: t => 1 - Math.pow(1 - t, 4), onComplete: done });
             images.forEach(img => gsap.fromTo(img, { y: -24, scale: 1.08 }, { y: 24, scale: 1.08, ease: 'none', scrollTrigger: { trigger: img.closest(sectionSelector), start: 'top bottom', end: 'bottom top', scrub: .65 } }));
             return () => {
                 delete window.proofScrollTo;

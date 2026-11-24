@@ -1,5 +1,7 @@
 /* Full-screen chapters: each panel is exactly one viewport. */
 html.fullscreen {
+    --fullscreen-edge-inline: var(--container-padding-desktop);
+    --fullscreen-edge-block: var(--space-24);
     scroll-behavior: auto;
     scrollbar-gutter: auto;
 }
@@ -22,23 +24,27 @@ html.fullscreen {
 }
 
 .fullscreen .fullscreen-section__body {
-    position: relative;
+    position: absolute;
     z-index: 2;
+    top: var(--fullscreen-header, 0px);
+    right: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    height: 100%;
+    align-items: flex-start;
+    width: 100%;
+    height: var(--fullscreen-fit-height, calc(100dvh - var(--fullscreen-header, 0px)));
     min-height: 0;
-    padding-block: calc(var(--fullscreen-header, var(--space-100)) + var(--space-40)) var(--space-24);
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: clip;
-    scrollbar-width: thin;
-    scrollbar-color: var(--color-primary) transparent;
-    scroll-behavior: auto;
+    box-sizing: border-box;
 }
 
-.fullscreen .hero__content {
-    padding-block: 0;
+.fullscreen .fullscreen-section__body > * {
+    max-width: none;
+    flex: 0 0 auto;
+    transform: translateY(var(--fullscreen-fit-offset-y, 0px)) scale(var(--fullscreen-fit-scale, 1));
+    transform-origin: top left;
 }
 
 .fullscreen .hero__title {
@@ -200,6 +206,13 @@ html.fullscreen {
 @media (max-width: 960px) {
     .fullscreen .knowledge__container {
         grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    html.fullscreen {
+        --fullscreen-edge-inline: var(--container-padding-mobile);
+        --fullscreen-edge-block: var(--space-16);
     }
 }
 

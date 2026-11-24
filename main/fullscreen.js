@@ -8,9 +8,76 @@
     const reduced = matchMedia('(prefers-reduced-motion: reduce)');
     const fine = matchMedia('(pointer: fine)');
     root.classList.add('fullscreen');
-    const updateHeader = () => root.style.setProperty('--fullscreen-header', `${header?.offsetHeight || 0}px`);
+    const bodies = sections.map(section => section.querySelector('.fullscreen-section__body'));
+    let fitFrame = 0;
+    const fitSections = () => {
+        fitFrame = 0;
+        const headerHeight = header?.offsetHeight || 0;
+        const viewportHeight = window.visualViewport?.height || window.innerHeight;
+        const availableHeight = Math.max(1, viewportHeight - headerHeight);
+
+        bodies.forEach(body => {
+            if (!body) return;
+            const content = body.firstElementChild;
+            if (!content) return;
+            body.style.setProperty('--fullscreen-fit-height', `${availableHeight}px`);
+            body.style.setProperty('--fullscreen-fit-scale', '1');
+            body.style.setProperty('--fullscreen-fit-offset-y', '0px');
+            const bodyStyle = getComputedStyle(body);
+            const paddingTop = Number.parseFloat(bodyStyle.paddingTop);
+            const paddingBottom = Number.parseFloat(bodyStyle.paddingBottom);
+            const availableContentHeight = Math.max(1, body.clientHeight - paddingTop - paddingBottom);
+            const naturalHeight = Math.max(content.scrollHeight, content.offsetHeight, 1);
+            let scale = Math.min(1, availableContentHeight / naturalHeight);
+
+            const getContentBounds = () => {
+                let top = Infinity;
+                let bottom = -Infinity;
+                [content, ...content.querySelectorAll('*')].forEach(element => {
+                    const style = getComputedStyle(element);
+                    if (style.display === 'none' || style.visibility === 'hidden' || style.position === 'fixed') return;
+                    const rect = element.getBoundingClientRect();
+                    if (rect.width <= 0 || rect.height <= 0) return;
+                    top = Math.min(top, rect.top);
+                    bottom = Math.max(bottom, rect.bottom);
+                });
+                return {
+                    top,
+                    bottom,
+                    height: Math.max(1, bottom - top)
+                };
+            };
+
+            for (let pass = 0; pass < 6; pass += 1) {
+                body.style.setProperty('--fullscreen-fit-scale', `${scale}`);
+                body.style.setProperty('--fullscreen-fit-offset-y', '0px');
+                const bounds = getContentBounds();
+                if (bounds.height <= availableContentHeight + 1) break;
+                const correction = availableContentHeight / bounds.height;
+                scale = Math.max(0.05, scale * correction * 0.995);
+            }
+
+            body.style.setProperty('--fullscreen-fit-scale', `${scale}`);
+            body.style.setProperty('--fullscreen-fit-offset-y', '0px');
+            const bounds = getContentBounds();
+            const bodyRect = body.getBoundingClientRect();
+            const bodyTop = bodyRect.top + paddingTop;
+            const offset = bodyTop + Math.max(0, (availableContentHeight - bounds.height) / 2) - bounds.top;
+            body.style.setProperty('--fullscreen-fit-offset-y', `${offset}px`);
+        });
+    };
+    const scheduleFit = () => {
+        if (fitFrame) return;
+        fitFrame = requestAnimationFrame(fitSections);
+    };
+    const updateHeader = () => {
+        root.style.setProperty('--fullscreen-header', `${header?.offsetHeight || 0}px`);
+        scheduleFit();
+    };
     updateHeader();
     if (header && 'ResizeObserver' in window) new ResizeObserver(updateHeader).observe(header);
+    document.fonts?.ready.then(scheduleFit);
+    window.addEventListener('load', scheduleFit, { once: true });
     const nav = document.createElement('nav');
     nav.className = 'fullscreen-nav';
     nav.setAttribute('aria-label', 'Навигация по экранам');
@@ -45,8 +112,8 @@
             finished = true; animating = false; root.style.removeProperty('scroll-snap-type'); updateNav(index); callback?.();
         };
         if (reduced.matches || Math.abs(top - scrollY) < 2) { window.scrollTo({ top, behavior: 'instant' }); finish(); return; }
-        if (fine.matches && window.proofScrollTo) { window.proofScrollTo(top, finish); setTimeout(finish, 1450); return; }
-        const from = scrollY, start = performance.now(), duration = 850;
+        if (fine.matches && window.proofScrollTo) { window.proofScrollTo(top, finish); setTimeout(finish, 750); return; }
+        const from = scrollY, start = performance.now(), duration = 420;
         if (!fine.matches) root.style.scrollSnapType = 'none';
         const step = now => {
             if (token !== animationToken) return;
@@ -71,7 +138,7 @@
         const direction = Math.sign(event.deltaY);
         const canScroll = scrollable(event.target, direction);
         clearTimeout(gestureTimer);
-        gestureTimer = setTimeout(() => { gesture = null; }, 180);
+        gestureTimer = setTimeout(() => { gesture = null; }, 90);
         if (animating || gesture === 'page') { event.preventDefault(); event.stopImmediatePropagation(); return; }
         if (canScroll) { gesture = 'inner'; return; }
         event.preventDefault(); event.stopImmediatePropagation();
@@ -111,6 +178,7 @@
     window.addEventListener('popstate', () => navigateHash(location.hash));
     window.addEventListener('scroll', () => { if (!animating) updateNav(); }, { passive: true });
     window.addEventListener('resize', () => { updateHeader(); if (!animating) updateNav(); }, { passive: true });
+    window.visualViewport?.addEventListener('resize', updateHeader, { passive: true });
     if (location.hash) requestAnimationFrame(() => navigateHash(location.hash));
     updateNav();
 })();
