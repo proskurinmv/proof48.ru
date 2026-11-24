@@ -44,11 +44,6 @@ html.fullscreen {
 .fullscreen .hero__title {
     max-width: 19ch;
     font-size: clamp(var(--fz-4xl), 4.4vw, calc(var(--fz-6xl) * 1.25));
-    margin-bottom: var(--space-24);
-}
-
-.fullscreen .hero__description {
-    margin-bottom: var(--space-24);
 }
 
 .fullscreen .industries__gallery, .fullscreen .services__intro {
@@ -74,11 +69,7 @@ html.fullscreen {
 }
 
 .fullscreen .project-geography__map-panel {
-    min-height: 20rem;
-}
-
-.fullscreen .roofing-systems__intro {
-    gap: var(--space-20);
+    min-height: 40rem;
 }
 
 .fullscreen .roofing-systems__eyebrow-row {
@@ -86,10 +77,6 @@ html.fullscreen {
 }
 
 @media (min-width: 1201px) {
-    .fullscreen main > section:not(.hero) {
-        --section-space-md: var(--space-20);
-        --section-space-lg: var(--space-30);
-    }
 
     .fullscreen .industries__container {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);

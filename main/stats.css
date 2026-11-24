@@ -18,7 +18,7 @@
     align-items: center;
     min-width: 0;
     gap: var(--section-space-sm);
-    padding-inline: var(--section-space-sm);
+    padding: var(--section-space-sm);
     border-right: 1px solid var(--color-border-inverse);
 
     @media (max-width: 900px) {
