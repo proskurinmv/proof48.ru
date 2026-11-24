@@ -11,6 +11,9 @@
     const sectionSelector = 'main > section';
     const reveals = [...main.querySelectorAll([
         ':scope > section:not(.hero) h2', '[class$="__eyebrow-row"]',
+        '.industries__subtitle', '.services__description', '.roofing-systems__subtitle',
+        '.projects-gallery__description', '.project-geography__description', '.about__description',
+        '.knowledge__description', '.technical-solution__description', '.consultation__description',
         '.industries__item', '.industries__gallery-item', '.services__card',
         '.roofing-systems__card', '.projects-gallery__card', '.about__media',
         '.about__focus-card', '.knowledge__media', '.knowledge__item',
@@ -19,8 +22,9 @@
     ].join(','))];
     const images = [...main.querySelectorAll('.hero__image, .services__background, .roofing-systems__background, .technical-solution__background')];
     const imageReveal = el => el.matches('.industries__gallery-item, .about__media, .knowledge__media');
+    const cardReveal = el => el.matches('.industries__item, .services__card, .roofing-systems__card, .projects-gallery__card, .about__focus-card, .knowledge__item, .technical-solution__benefit');
+    const motionType = el => imageReveal(el) ? 'image' : cardReveal(el) ? 'card' : 'content';
     const stagger = el => Math.min([...el.parentElement.children].filter(child => reveals.includes(child)).indexOf(el), 3) * 70;
-    const seen = new WeakSet();
     let observer, frame = 0, cleanupGsap = null, librariesReady = false, librariesLoading = false;
     const formatProgress = () => {
         const max = root.scrollHeight - innerHeight;
@@ -33,7 +37,7 @@
         positions.forEach(({ img, rect }) => {
             if (rect.bottom < 0 || rect.top > innerHeight) return;
             const amount = Math.max(-1, Math.min(1, (innerHeight / 2 - (rect.top + rect.height / 2)) / (innerHeight / 2 + rect.height / 2)));
-            img.style.transform = `translate3d(0, ${amount * 24}px, 0) scale(1.08)`;
+                img.style.transform = `translate3d(0, ${amount * 44}px, 0) scale(1.08)`;
         });
     };
     const onFrame = () => { frame = 0; formatProgress(); nativeParallax(); };
@@ -51,18 +55,20 @@
     const startNative = () => {
         if (reduced.matches || !('IntersectionObserver' in window)) return;
         root.classList.add('motion-native');
+        observer?.disconnect();
         observer = new IntersectionObserver(entries => entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
             const el = entry.target;
-            seen.add(el);
-            el.removeAttribute('data-motion-pending');
-            el.setAttribute('data-motion-visible', '');
-            observer.unobserve(el);
-        }), { rootMargin: '0px 0px -4% 0px', threshold: 0.01 });
+            if (entry.isIntersecting) {
+                el.removeAttribute('data-motion-pending');
+                el.setAttribute('data-motion-visible', '');
+            } else if (!el.contains(document.activeElement)) {
+                el.removeAttribute('data-motion-visible');
+                el.setAttribute('data-motion-pending', motionType(el));
+            }
+        }), { rootMargin: '-8% 0px -8% 0px', threshold: 0.08 });
         reveals.forEach(el => {
-            if (seen.has(el) || el.getBoundingClientRect().top < innerHeight) { seen.add(el); return; }
             el.style.setProperty('--motion-delay', `${Math.max(0, stagger(el))}ms`);
-            el.setAttribute('data-motion-pending', imageReveal(el) ? 'image' : 'content');
+            el.setAttribute('data-motion-pending', motionType(el));
             observer.observe(el);
         });
         schedule();
@@ -71,8 +77,6 @@
     main.addEventListener('focusin', event => {
         const el = event.target.closest('[data-motion-pending]');
         if (el) {
-            seen.add(el);
-            observer?.unobserve(el);
             el.removeAttribute('data-motion-pending');
             el.setAttribute('data-motion-visible', '');
         }
@@ -93,8 +97,8 @@
             lenis.on('scroll', ScrollTrigger.update);
             tick = time => lenis?.raf(time * 1000);
             gsap.ticker.add(tick);
-            window.proofScrollTo = (top, done) => lenis.scrollTo(top, { duration: .45, force: true, easing: t => 1 - Math.pow(1 - t, 4), onComplete: done });
-            images.forEach(img => gsap.fromTo(img, { y: -24, scale: 1.08 }, { y: 24, scale: 1.08, ease: 'none', scrollTrigger: { trigger: img.closest(sectionSelector), start: 'top bottom', end: 'bottom top', scrub: .65 } }));
+            window.proofScrollTo = (top, done) => lenis.scrollTo(top, { duration: .52, force: true, easing: t => 1 - Math.pow(1 - t, 3), onComplete: done });
+            images.forEach(img => gsap.fromTo(img, { y: -32, scale: 1.08 }, { y: 32, scale: 1.08, ease: 'none', scrollTrigger: { trigger: img.closest(sectionSelector), start: 'top bottom', end: 'bottom top', scrub: .8 } }));
             return () => {
                 delete window.proofScrollTo;
                 gsap.ticker.remove(tick);

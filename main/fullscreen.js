@@ -9,11 +9,33 @@
     const fine = matchMedia('(pointer: fine)');
     root.classList.add('fullscreen');
     const bodies = sections.map(section => section.querySelector('.fullscreen-section__body'));
-    let fitFrame = 0;
+    let fitFrame = 0, chapterMotionFrame = 0;
+    const updateChapterMotion = () => {
+        chapterMotionFrame = 0;
+        const viewportHeight = Math.max(1, Math.min(window.innerHeight, window.visualViewport?.height || window.innerHeight));
+        const travel = fine.matches ? 72 : 34;
+
+        sections.forEach((section, index) => {
+            const body = bodies[index];
+            if (!body) return;
+            if (reduced.matches) {
+                body.style.setProperty('--fullscreen-chapter-shift', '0px');
+                body.style.setProperty('--fullscreen-chapter-opacity', '1');
+                return;
+            }
+            const distance = Math.max(-1, Math.min(1, section.getBoundingClientRect().top / viewportHeight));
+            body.style.setProperty('--fullscreen-chapter-shift', `${distance * travel}px`);
+            body.style.setProperty('--fullscreen-chapter-opacity', `${1 - Math.abs(distance) * 0.5}`);
+        });
+    };
+    const scheduleChapterMotion = () => {
+        if (chapterMotionFrame) return;
+        chapterMotionFrame = requestAnimationFrame(updateChapterMotion);
+    };
     const fitSections = () => {
         fitFrame = 0;
         const headerHeight = header?.offsetHeight || 0;
-        const viewportHeight = window.visualViewport?.height || window.innerHeight;
+        const viewportHeight = Math.min(window.innerHeight, window.visualViewport?.height || window.innerHeight);
         const availableHeight = Math.max(1, viewportHeight - headerHeight);
 
         bodies.forEach(body => {
@@ -33,13 +55,14 @@
             const getContentBounds = () => {
                 let top = Infinity;
                 let bottom = -Infinity;
+                const chapterShift = Number.parseFloat(getComputedStyle(body).getPropertyValue('--fullscreen-chapter-shift')) || 0;
                 [content, ...content.querySelectorAll('*')].forEach(element => {
                     const style = getComputedStyle(element);
                     if (style.display === 'none' || style.visibility === 'hidden' || style.position === 'fixed') return;
                     const rect = element.getBoundingClientRect();
                     if (rect.width <= 0 || rect.height <= 0) return;
-                    top = Math.min(top, rect.top);
-                    bottom = Math.max(bottom, rect.bottom);
+                    top = Math.min(top, rect.top - chapterShift);
+                    bottom = Math.max(bottom, rect.bottom - chapterShift);
                 });
                 return {
                     top,
@@ -65,6 +88,7 @@
             const offset = bodyTop + Math.max(0, (availableContentHeight - bounds.height) / 2) - bounds.top;
             body.style.setProperty('--fullscreen-fit-offset-y', `${offset}px`);
         });
+        scheduleChapterMotion();
     };
     const scheduleFit = () => {
         if (fitFrame) return;
@@ -76,6 +100,19 @@
     };
     updateHeader();
     if (header && 'ResizeObserver' in window) new ResizeObserver(updateHeader).observe(header);
+    if ('ResizeObserver' in window) {
+        const contentObserver = new ResizeObserver(scheduleFit);
+        bodies.forEach(body => {
+            const content = body?.firstElementChild;
+            if (content) contentObserver.observe(content);
+        });
+    }
+    if ('MutationObserver' in window) {
+        const contentMutationObserver = new MutationObserver(scheduleFit);
+        bodies.forEach(body => {
+            if (body) contentMutationObserver.observe(body, { childList: true, subtree: true });
+        });
+    }
     document.fonts?.ready.then(scheduleFit);
     window.addEventListener('load', scheduleFit, { once: true });
     const nav = document.createElement('nav');
@@ -113,12 +150,12 @@
         };
         if (reduced.matches || Math.abs(top - scrollY) < 2) { window.scrollTo({ top, behavior: 'instant' }); finish(); return; }
         if (fine.matches && window.proofScrollTo) { window.proofScrollTo(top, finish); setTimeout(finish, 750); return; }
-        const from = scrollY, start = performance.now(), duration = 420;
+            const from = scrollY, start = performance.now(), duration = 520;
         if (!fine.matches) root.style.scrollSnapType = 'none';
         const step = now => {
             if (token !== animationToken) return;
             const t = Math.min(1, (now - start) / duration);
-            window.scrollTo({ top: from + (top - from) * (1 - Math.pow(1 - t, 4)), behavior: 'instant' });
+                window.scrollTo({ top: from + (top - from) * (1 - Math.pow(1 - t, 3)), behavior: 'instant' });
             if (t < 1) animationFrame = requestAnimationFrame(step);
             else finish();
         };
@@ -176,9 +213,11 @@
         if (navigateHash(link.getAttribute('href'), true)) event.preventDefault();
     });
     window.addEventListener('popstate', () => navigateHash(location.hash));
-    window.addEventListener('scroll', () => { if (!animating) updateNav(); }, { passive: true });
-    window.addEventListener('resize', () => { updateHeader(); if (!animating) updateNav(); }, { passive: true });
+    window.addEventListener('scroll', () => { scheduleChapterMotion(); if (!animating) updateNav(); }, { passive: true });
+    window.addEventListener('resize', () => { updateHeader(); scheduleChapterMotion(); if (!animating) updateNav(); }, { passive: true });
     window.visualViewport?.addEventListener('resize', updateHeader, { passive: true });
+    reduced.addEventListener('change', scheduleChapterMotion);
     if (location.hash) requestAnimationFrame(() => navigateHash(location.hash));
     updateNav();
+    updateChapterMotion();
 })();

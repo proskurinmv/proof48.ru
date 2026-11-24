@@ -243,7 +243,11 @@ html.lenis.lenis-smooth {
 /* Native fallback uses intersection-based reveals; no hiding before JS. */
 .motion-native [data-motion-pending] {
     opacity: 0;
-    transform: translate3d(0, var(--space-24), 0);
+    transform: translate3d(0, var(--space-16), 0);
+}
+
+.motion-native [data-motion-pending="card"] {
+    transform: translate3d(0, var(--space-24), 0) scale(.985);
 }
 
 .motion-native [data-motion-pending="image"] {
@@ -256,7 +260,7 @@ html.lenis.lenis-smooth {
     opacity: 1;
     transform: none;
     clip-path: inset(0);
-    transition: opacity .75s ease, transform .95s cubic-bezier(.22, 1, .36, 1), clip-path .95s cubic-bezier(.22, 1, .36, 1);
+    transition: opacity .58s cubic-bezier(.23, 1, .32, 1), transform .78s cubic-bezier(.23, 1, .32, 1), clip-path .82s cubic-bezier(.23, 1, .32, 1);
     transition-delay: var(--motion-delay, 0ms);
 }
 
