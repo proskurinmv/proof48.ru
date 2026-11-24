@@ -85,7 +85,7 @@
 
 .project-geography__layout {
     display: grid;
-    grid-template-columns: minmax(0, 2.6fr) minmax(19rem, 1fr);
+    grid-template-columns: minmax(0, 2fr) minmax(19rem, 1fr);
     gap: var(--space-16);
 }
 
@@ -336,7 +336,7 @@
     }
 
     .project-geography__card-title {
-        font-size: var(--fz-xl);
+        font-size: var(--fz-lg);
     }
 }
 

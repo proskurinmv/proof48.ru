@@ -1,0 +1,57 @@
+main {
+    position: relative;
+    background-color: var(--color-bg-inverse);
+}
+
+main > section {
+    position: relative;
+    isolation: isolate;
+    transform-origin: center top;
+    backface-visibility: hidden;
+}
+
+@media (min-width: 769px) {
+    .scroll-enhanced main > section {
+        position: sticky;
+        top: 0;
+        min-height: 100svh;
+        overflow: clip;
+        will-change: transform;
+    }
+
+    .scroll-enhanced main > section::after {
+        position: absolute;
+        z-index: 20;
+        inset: 0;
+        border-radius: inherit;
+        background-color: var(--color-bg-inverse);
+        content: "";
+        opacity: var(--stack-dim, 0);
+        pointer-events: none;
+        will-change: opacity;
+    }
+
+    .scroll-enhanced main > section:not(:first-child) {
+        margin-top: calc(var(--space-32) * -1);
+        border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scroll-enhanced main > section {
+        position: relative;
+        top: auto;
+        min-height: initial;
+        transform: none !important;
+        will-change: auto;
+    }
+
+    .scroll-enhanced main > section::after {
+        opacity: 0;
+    }
+
+    .scroll-enhanced main > section:not(:first-child) {
+        margin-top: 0;
+        border-radius: 0;
+    }
+}

@@ -225,7 +225,6 @@
 
 @media (max-width: 1440px) {
     .consultation__container {
-        width: calc(100% - var(--space-60) * 2);
         grid-template-columns: minmax(0, 1fr) minmax(32rem, 40rem);
     }
 }
@@ -241,9 +240,7 @@
     }
 
     .consultation__container {
-        width: calc(100% - var(--space-40) * 2);
         grid-template-columns: 1fr;
-        gap: var(--space-50);
         transform: none;
     }
 
@@ -257,10 +254,6 @@
 }
 
 @media (max-width: 768px) {
-    .consultation__container {
-        width: calc(100% - var(--space-24) * 2);
-        gap: var(--space-40);
-    }
 
     .consultation__eyebrow {
         margin-bottom: var(--space-24);
@@ -269,10 +262,6 @@
 }
 
 @media (max-width: 576px) {
-    .consultation__container {
-        width: calc(100% - var(--container-padding-mobile) * 2);
-    }
-
     .consultation__eyebrow {
         align-items: flex-start;
         gap: var(--space-12);

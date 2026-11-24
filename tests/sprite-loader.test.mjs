@@ -11,7 +11,7 @@ test('page scripts do not request the missing singular sprite filename', async (
     const sources = await Promise.all(files.map((file) => readFile(file, 'utf8')));
 
     assert.match(sources[0], /svg_icons\.html/);
-    assert.match(sources[0], /svg_icons\.html\?v=services-1/);
+    assert.match(sources[0], /svg_icons\.html\?v=technical-solution-1/);
     sources.forEach((source) => assert.doesNotMatch(source, /svg_icon\.html/));
 });
 
