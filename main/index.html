@@ -20,12 +20,18 @@
     <link rel="stylesheet" href="./knowledge.css?v=knowledge-1">
     <link rel="stylesheet" href="./technical-solution.css?v=technical-solution-1">
     <link rel="stylesheet" href="./consultation.css?v=consultation-1">
-    <link rel="stylesheet" href="./scroll.css?v=scroll-4">
-    <script src="./header.js?v=technical-solution-1" defer></script>
+    <link rel="stylesheet" href="./scroll.css?v=fullscreen-6">
+    <script src="../custom/svg-loader.js" defer></script>
+    <script src="./header.js?v=technical-solution-2" defer></script>
+    <script src="./project-geography.js" defer></script>
+    <link rel="stylesheet" href="./fullscreen.css?v=1">
+    <script src="./fullscreen.js?v=1" defer></script>
+    <script src="./scroll.js?v=fullscreen-6" defer></script>
 
     <title>Промышленная гидроизоляция — PROOF</title>
 </head>
 <body>
+<div class="scroll-progress" aria-hidden="true"><span class="scroll-progress__bar"></span></div>
 <header class="header" data-header>
     <div class="header__container main-container">
         <a class="header__logo" href="#" aria-label="PROOF — на главную">
@@ -42,7 +48,7 @@
                 <li class="header__menu-item"><a class="header__menu-link" href="#projects">Объекты</a></li>
                 <li class="header__menu-item"><a class="header__menu-link" href="#about">О компании</a></li>
                 <li class="header__menu-item"><a class="header__menu-link" href="#knowledge">База знаний</a></li>
-                <li class="header__menu-item"><a class="header__menu-link" href="#contacts">Контакты</a></li>
+                <li class="header__menu-item"><a class="header__menu-link" href="#consultation">Контакты</a></li>
             </ul>
 
             <div class="header__mobile-actions">
@@ -86,21 +92,25 @@
 </header>
 
 <main>
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+        <img class="hero__image" src="./images/hero.png" alt="" fetchpriority="high" decoding="async">
+        <div class="hero__veil" aria-hidden="true"></div>
         <div class="hero__decor" aria-hidden="true"></div>
+        <div class="fullscreen-section__body">
         <div class="hero__container main-container">
             <div class="hero__content">
                 <span class="hero__accent" aria-hidden="true"></span>
-                <h1 class="hero__title">Гидроизоляция и ремонт <span>сложных промышленных</span> кровель</h1>
+                <p class="hero__eyebrow"><span></span> ПРОМЫШЛЕННАЯ ГИДРОИЗОЛЯЦИЯ</p>
+                <h1 class="hero__title" id="hero-title">Гидроизоляция и ремонт <span>сложных промышленных</span> кровель</h1>
                 <p class="hero__description">Работаем с кровлями площадью от 500 м² и технически сложными объектами.
                     Подбираем техническое решение под состояние кровли, условия эксплуатации и задачу заказчика.</p>
                 <div class="hero__actions">
-                    <button class="button button_primary button_arrow">
+                    <a class="button button_primary button_arrow" href="#consultation">
                         <span>Получить техническое решение</span>
                         <svg aria-hidden="true">
                             <use href="#icon_arrow_right_3"></use>
                         </svg>
-                    </button>
+                    </a>
                     <a class="button button_outline_inverse button_arrow" href="#projects">
                         <span>Наши объекты</span>
                         <svg aria-hidden="true">
@@ -118,7 +128,7 @@
                             </svg>
                             <div class="stats__content">
                                 <div class="stats__value-line">
-                                    <strong class="stats__value counter" data-target="20000" data-suffix="+"></strong>
+                                    <strong class="stats__value counter" data-target="20000" data-suffix="+">20 000+</strong>
                                     <span class="stats__unit">м²</span>
                                 </div>
                                 <p class="stats__description">реализованных<br>кровельных решений</p>
@@ -130,7 +140,7 @@
                             </svg>
                             <div class="stats__content">
                                 <div class="stats__value-line">
-                                    <strong class="stats__value counter" data-target="95" data-suffix="+"></strong>
+                                    <strong class="stats__value counter" data-target="95" data-suffix="+">95+</strong>
                                 </div>
                                 <p class="stats__description">регионов<br>присутствия</p>
                             </div>
@@ -141,7 +151,7 @@
                             </svg>
                             <div class="stats__content">
                                 <div class="stats__value-line">
-                                    <strong class="stats__value counter" data-target="1000" data-suffix="+"></strong>
+                                    <strong class="stats__value counter" data-target="1000" data-suffix="+">1 000+</strong>
                                 </div>
                                 <p class="stats__description">объектов<br>в эксплуатации</p>
                             </div>
@@ -152,7 +162,7 @@
                             </svg>
                             <div class="stats__content">
                                 <div class="stats__value-line">
-                                    <strong class="stats__value counter" data-target="15" data-suffix="+"></strong>
+                                    <strong class="stats__value counter" data-target="15" data-suffix="+">15+</strong>
                                     <span class="stats__unit">лет</span>
                                 </div>
                                 <p class="stats__description">опыта на рынке</p>
@@ -162,8 +172,10 @@
                 </div>
             </section>
         </div>
+        </div>
     </section>
     <section class="industries" id="industries" aria-labelledby="industries-title">
+        <div class="fullscreen-section__body">
         <div class="industries__container main-container">
             <div class="industries__content">
                 <div class="industries__eyebrow-row">
@@ -256,10 +268,12 @@
                 </div>
             </div>
         </div>
+        </div>
     </section>
     <section class="services" id="services" aria-labelledby="services-title">
         <img class="services__background" src="./images/services/services-roof-sunset.png"
              alt="" loading="lazy" decoding="async">
+        <div class="fullscreen-section__body">
         <div class="services__container main-container">
             <div class="services__intro">
                 <div class="services__eyebrow-row">
@@ -371,6 +385,7 @@
                 </article>
             </div>
         </div>
+        </div>
     </section>
     <section class="roofing-systems" id="roofing" aria-labelledby="roofing-systems-title">
         <img class="roofing-systems__background" src="./images/roofing-systems/roofing-systems-hero.webp?v=roofing-2"
@@ -378,6 +393,7 @@
              decoding="async">
         <div class="roofing-systems__veil" aria-hidden="true"></div>
 
+        <div class="fullscreen-section__body">
         <div class="roofing-systems__container main-container">
             <div class="roofing-systems__intro">
                 <div class="roofing-systems__eyebrow-row">
@@ -391,12 +407,12 @@
                     основания, условий эксплуатации и требований объекта.</p>
 
                 <div class="roofing-systems__actions">
-                    <button class="button button_primary button_arrow">
+                    <a class="button button_primary button_arrow" href="#consultation">
                         <span>Подобрать решение</span>
                         <svg aria-hidden="true">
                             <use href="#icon_arrow_right_3"></use>
                         </svg>
-                    </button>
+                    </a>
 
                     <ul class="roofing-systems__metrics" aria-label="Опыт компании">
                         <li class="roofing-systems__metric">
@@ -484,6 +500,7 @@
                 </article>
             </div>
         </div>
+        </div>
     </section>
     <section class="projects-gallery" id="projects" aria-labelledby="projects-gallery-title">
         <img class="projects-gallery__background"
@@ -491,6 +508,7 @@
              alt="" loading="lazy" decoding="async">
         <span class="projects-gallery__veil" aria-hidden="true"></span>
 
+        <div class="fullscreen-section__body">
         <div class="projects-gallery__container main-container">
             <div class="projects-gallery__header">
                 <div class="projects-gallery__intro">
@@ -512,6 +530,7 @@
                 </a>
             </div>
 
+            <div class="projects-gallery__viewport">
             <div class="projects-gallery__grid" id="projects-grid">
                 <article class="projects-gallery__card" id="project-data-center">
                     <img class="projects-gallery__image"
@@ -614,14 +633,17 @@
                     </div>
                 </article>
             </div>
+            </div>
+        </div>
         </div>
     </section>
-    <section class="project-geography" data-project-geography data-yandex-api-key=""
+    <section class="project-geography" id="project-geography" data-project-geography data-yandex-api-key=""
              aria-labelledby="project-geography-title">
+        <div class="fullscreen-section__body">
         <div class="project-geography__container main-container">
             <div class="project-geography__header">
                 <div class="project-geography__intro">
-                    <div class="project-geography_eyebrow-row">
+                    <div class="project-geography__eyebrow-row">
                         <span class="project-geography__eyebrow-line" aria-hidden="true"></span>
                         <p class="project-geography__eyebrow">География проектов</p>
                     </div>
@@ -702,8 +724,10 @@
                 </article>
             </div>
         </div>
+        </div>
     </section>
     <section class="about" id="about" aria-labelledby="about-title">
+        <div class="fullscreen-section__body">
         <div class="about__container">
             <div class="about__media">
                 <div class="about__image-wrap">
@@ -780,19 +804,23 @@
                 </a>
             </div>
         </div>
+        </div>
     </section>
     <section class="consultation" id="consultation" aria-labelledby="consultation-title">
+        <img class="consultation__background" src="./images/consultation/roof-membrane-dawn.png" alt="" loading="lazy" decoding="async">
+        <div class="consultation__veil" aria-hidden="true"></div>
+        <div class="fullscreen-section__body">
         <div class="consultation__container main-container">
             <div class="consultation__content">
-                <div class="project-geography_eyebrow-row">
+                <div class="project-geography__eyebrow-row">
                     <span class="project-geography__eyebrow-line" aria-hidden="true"></span>
-                    <p class="project-geography__eyebrow">Предварительная оценка объектав</p>
+                    <p class="project-geography__eyebrow">Предварительная оценка объекта</p>
                 </div>
                 <h2 class="consultation__title" id="consultation-title">Получите предварительное техническое решение и
                     ориентир <span>по стоимости работ</span></h2>
                 <p class="consultation__description">Пришлите площадь, регион, тип кровли и несколько фотографий. Если
                     есть проект или ТЗ — приложите его, чтобы мы точнее оценили задачу и предложили подходящий вариант
-                    решения..</p>
+                    решения.</p>
             </div>
 
             <form class="consultation__form" action="#" method="post" enctype="multipart/form-data">
@@ -858,8 +886,10 @@
                 </button>
             </form>
         </div>
+        </div>
     </section>
     <section class="knowledge" id="knowledge" aria-labelledby="knowledge-title">
+        <div class="fullscreen-section__body">
         <div class="knowledge__container">
             <div class="knowledge__media">
                 <img class="knowledge__image" src="./images/knowledge/proof-roofing-expert.png"
@@ -908,6 +938,7 @@
                 </a>
             </div>
         </div>
+        </div>
     </section>
 
     <section class="technical-solution" id="technical-solution" aria-labelledby="technical-solution-title">
@@ -917,6 +948,7 @@
              loading="lazy" decoding="async">
         <span class="technical-solution__overlay" aria-hidden="true"></span>
 
+        <div class="fullscreen-section__body">
         <div class="technical-solution__container main-container">
             <div class="technical-solution__content">
                 <div class="technical-solution__eyebrow-row">
@@ -948,7 +980,7 @@
                     </li>
                 </ul>
 
-                <a class="button button_primary button_arrow" href="#consultation">
+                <a class="technical-solution__cta button button_primary button_arrow" href="#consultation">
                     <span>Получить техническое решение</span>
                     <svg aria-hidden="true">
                         <use href="#icon_arrow_right_3"></use>
@@ -956,8 +988,9 @@
                 </a>
             </div>
         </div>
+        </div>
     </section>
 </main>
-<script src="stats.js"></script>
+<script src="stats.js?v=fullscreen-6" defer></script>
 </body>
 </html>

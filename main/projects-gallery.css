@@ -157,7 +157,7 @@
     display: inline-flex;
     align-items: center;
     gap: var(--space-12);
-    padding: 12px;
+    padding: var(--space-12);
     color: var(--color-bg-inverse);
     background-color: color-mix(in srgb, var(--teal-100) 88%, transparent);
     border: 1px solid color-mix(in srgb, var(--teal-300) 72%, transparent);

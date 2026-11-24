@@ -2,13 +2,6 @@
     const header = document.querySelector('[data-header]');
     if (!header) return;
 
-    if (typeof fetch === 'function' && document.body?.insertAdjacentHTML) {
-        fetch('../custom/svg_icons.html?v=technical-solution-1')
-            .then((response) => response.ok ? response.text() : Promise.reject())
-            .then((sprite) => document.body.insertAdjacentHTML('afterbegin', sprite))
-            .catch(() => {});
-    }
-
     const toggle = header.querySelector('[data-header-toggle]');
     const navigation = header.querySelector('[data-header-navigation]');
     if (!toggle || !navigation) return;

@@ -1,37 +1,21 @@
-// счетчик
 document.addEventListener('DOMContentLoaded', () => {
     const counters = document.querySelectorAll('.counter');
-
-    const animateCounter = (el) => {
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+    const format = (value, suffix) => value.toLocaleString('ru-RU') + suffix;
+    if (reduced.matches || !('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        observer.unobserve(el);
         const target = Number(el.dataset.target);
         const suffix = el.dataset.suffix || '';
-        const duration = 1500;
         const start = performance.now();
-
-        const animate = (time) => {
-            const progress = Math.min((time - start) / duration, 1);
-            const value = Math.floor(progress * target);
-
-            el.textContent = value.toLocaleString() + suffix;
-
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            } else {
-                el.textContent = target.toLocaleString() + suffix;
-            }
+        const animate = time => {
+            const progress = reduced.matches ? 1 : Math.min((time - start) / 1200, 1);
+            el.textContent = format(Math.round(target * (1 - Math.pow(1 - progress, 3))), suffix);
+            if (progress < 1) requestAnimationFrame(animate);
         };
-
         requestAnimationFrame(animate);
-    };
-
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                obs.unobserve(entry.target);
-            }
-        });
-    }, {threshold: 0.4});
-
-    counters.forEach(counter => observer.observe(counter));
+    }), { threshold: .35 });
+    counters.forEach(el => observer.observe(el));
 });

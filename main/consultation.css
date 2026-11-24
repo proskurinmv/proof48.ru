@@ -4,12 +4,7 @@
     align-items: center;
     overflow: hidden;
     background-color: var(--color-bg-soft);
-    background-image: linear-gradient(90deg,
-    color-mix(in srgb, var(--color-surface) 90%, transparent) 0%,
-    color-mix(in srgb, var(--color-surface) 82%, transparent) 38%,
-    color-mix(in srgb, var(--color-surface) 34%, transparent) 58%,
-    transparent 78%),
-    url("./images/consultation/roof-membrane-dawn.png");
+    background-color: var(--color-bg-soft);
     background-size: cover;
     scroll-margin-top: calc(var(--space-80) + var(--space-16));
     padding-block: var(--section-space-lg);
@@ -89,7 +84,7 @@
     gap: var(--space-16) var(--space-20);
     border: 1px solid var(--color-border-inverse);
     border-radius: var(--radius-2xl);
-    background-color: color-mix(in srgb, #6F6F6F00 58%, transparent);
+    background-color: var(--color-surface);
     box-shadow: 0 var(--space-20) var(--space-50) var(--color-overlay);
     backdrop-filter: blur(0.75rem);
     -webkit-backdrop-filter: blur(0.75rem);
@@ -231,11 +226,7 @@
 
 @media (max-width: 1120px) {
     .consultation {
-        background-image: linear-gradient(180deg,
-        color-mix(in srgb, var(--color-surface) 92%, transparent) 0%,
-        color-mix(in srgb, var(--color-surface) 76%, transparent) 48%,
-        color-mix(in srgb, var(--color-bg-inverse) 28%, transparent) 100%),
-        url("./images/consultation/roof-membrane-dawn.png");
+        background-color: var(--color-bg-soft);
         background-position: center;
     }
 
