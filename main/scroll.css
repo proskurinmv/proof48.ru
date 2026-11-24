@@ -119,9 +119,6 @@ html.lenis.lenis-smooth {
     font-size: var(--fz-lg);
 }
 
-.hero__actions {
-    margin-bottom: 0;
-}
 
 .hero .stats {
     margin-top: auto;
