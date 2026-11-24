@@ -7,7 +7,7 @@
 .knowledge__container {
     display: grid;
     grid-template-columns: minmax(0, 42.25%) minmax(0, 57.75%);
-    gap: var(--section-space-lg);
+    gap: var(--section-space-xl);
 }
 
 .knowledge__media {
@@ -65,7 +65,7 @@
 }
 
 .knowledge__title {
-    margin-bottom: var(--section-space-md);
+    margin-bottom: var(--section-space-lg);
     font-size: var(--fz-5xl);
     font-weight: var(--fw-bold);
     line-height: 1.08;

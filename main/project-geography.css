@@ -19,7 +19,7 @@
     max-width: 60rem;
 }
 
-.project-geography_eyebrow-row {
+.project-geography__eyebrow-row {
     display: flex;
     align-items: center;
     margin-bottom: var(--section-space-sm);

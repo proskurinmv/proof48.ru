@@ -8,7 +8,7 @@
     display: grid;
     width: 100%;
     min-width: 0;
-    grid-template-columns: minmax(0, 35rem) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 60rem) minmax(0, 1fr);
     gap: var(--space-80);
 }
 
@@ -24,7 +24,6 @@
 .about__image-wrap {
     height: 100%;
     min-height: 0;
-    overflow: hidden;
     grid-area: 1 / 1;
 }
 
@@ -172,7 +171,7 @@
 }
 
 .about__focus-card {
-    padding: var(--section-space-md) var(--section-space-sm);
+    padding: var(--section-space-lg) var(--section-space-md);
     border: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
     border-radius: var(--radius-2xl);
     background-color: var(--teal-50);

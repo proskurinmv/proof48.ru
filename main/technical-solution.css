@@ -78,7 +78,7 @@
 
 .technical-solution__title {
     margin-bottom: var(--section-space-md);
-    font-size: var(--fz-5xl);
+    font-size: clamp(var(--fz-4xl), 4.4vw, calc(var(--fz-6xl) * 1.25));
     font-weight: var(--fw-bold);
     line-height: 1.08;
     letter-spacing: -0.035em;
