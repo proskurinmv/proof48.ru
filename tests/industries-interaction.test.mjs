@@ -66,8 +66,9 @@ test('industries items expose gallery states and load their own interaction scri
     const configuredItems = html.match(/class="industries__item"[^>]+data-gallery-label=/g) ?? [];
 
     assert.equal(configuredItems.length, 6);
-    assert.match(html, /<link rel="stylesheet" href="\.\/industries\.css\?v=industries-gallery-1">/);
+    assert.match(html, /<link rel="stylesheet" href="\.\/industries\.css\?v=industries-gallery-2">/);
     assert.match(html, /<script src="\.\/industries\.js\?v=industries-gallery-1" defer><\/script>/);
+    assert.doesNotMatch(html, /<span class="industries__icon-box"[^>]*>\s*<span class="industries__icon-box"/);
     assert.match(html, /class="industries__gallery-placeholder"/);
 });
 
@@ -116,5 +117,8 @@ test('gallery placeholders and active industry have visible states with reduced-
     assert.match(css, /\.industries__gallery-placeholder\s*{/);
     assert.match(css, /\.industries__gallery-item\.is-placeholder/);
     assert.match(css, /@media \(prefers-reduced-motion: reduce\)/);
-    assert.match(css, /@media \(max-width: 576px\)[\s\S]*?\.industries__gallery\s*{[\s\S]*?width:\s*100%/);
+    assert.match(css, /grid-template-rows:\s*auto auto/);
+    assert.doesNotMatch(css, /&:hover\s*{/);
+    assert.match(css, /@media \(max-width: 576px\)[\s\S]*?\.industries__description\s*{[\s\S]*?grid-column:\s*2\/3/);
+    assert.match(css, /\.industries__gallery\s*{\s*display:\s*block;\s*width:\s*100%;\s*height:\s*auto;/);
 });
