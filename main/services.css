@@ -182,7 +182,6 @@
 @media (hover: hover) and (pointer: fine) {
     .services__card:hover {
         border-color: var(--color-border-accent);
-        box-shadow: 0 var(--space-12) var(--space-30) var(--black-alpha-20);
         transform: translateY(calc(var(--space-4) * -1));
     }
 

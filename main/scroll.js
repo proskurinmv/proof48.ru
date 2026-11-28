@@ -93,14 +93,19 @@
         // ScrollTrigger is used only for the outer page parallax.
         startNative();
         mm.add('(min-width: 1201px) and (min-height: 720px) and (pointer: fine)', () => {
-            lenis = new Lenis({ smoothWheel: false, syncTouch: false, autoRaf: false, anchors: false });
+            lenis = new Lenis({
+                smoothWheel: true,
+                syncTouch: false,
+                autoRaf: false,
+                anchors: true,
+                lerp: .12,
+                wheelMultiplier: .9
+            });
             lenis.on('scroll', ScrollTrigger.update);
             tick = time => lenis?.raf(time * 1000);
             gsap.ticker.add(tick);
-            window.proofScrollTo = (top, done) => lenis.scrollTo(top, { duration: .52, force: true, easing: t => 1 - Math.pow(1 - t, 3), onComplete: done });
             images.forEach(img => gsap.fromTo(img, { y: -32, scale: 1.08 }, { y: 32, scale: 1.08, ease: 'none', scrollTrigger: { trigger: img.closest(sectionSelector), start: 'top bottom', end: 'bottom top', scrub: .8 } }));
             return () => {
-                delete window.proofScrollTo;
                 gsap.ticker.remove(tick);
                 lenis?.destroy(); lenis = null; tick = null;
             };

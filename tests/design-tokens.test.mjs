@@ -13,6 +13,7 @@ const styleFiles = [
     new URL('../main/project-geography.css', import.meta.url),
     new URL('../main/scroll.css', import.meta.url),
     new URL('../main/consultation.css', import.meta.url),
+    new URL('../main/footer.css', import.meta.url),
 ];
 
 async function readStyles() {

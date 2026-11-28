@@ -1,5 +1,7 @@
 (() => {
-    const spriteUrl = new URL('./svg_icons.html', document.currentScript.src);
+    const loaderUrl = new URL(document.currentScript.src);
+    const spriteUrl = new URL('./svg_icons.html', loaderUrl);
+    spriteUrl.search = loaderUrl.search;
 
     async function loadSprite() {
         if (document.getElementById('svg-sprite')) return;
